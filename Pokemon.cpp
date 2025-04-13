@@ -13,11 +13,17 @@ int main()
     std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has six of level 100\n";
     std::cout << "As you can imagine those Pokemon are also legendary\n";
 
-    PokemonName MewTwo(100, 416, 350, 306, 447, 306, 394);
-    PokemonName Rayquaza(100, 414, 438, 306, 438, 306, 317);
-    PokemonName Arceus(100, 444, 372, 372, 372, 372, 372);
-    PokemonName Necrozma(100, 398, 476, 322, 476, 322, 392);
-    
+    PokemonName MewTwo("Mewtwo", 100, 416, 350, 306, 447, 306, 394);
+    PokemonName Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
+    PokemonName Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
+    PokemonName Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
+    PokemonName Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
+    PokemonName Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
+
+    PokemonName LegendaryPokemon[6] = { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };
+
+    PokemonName Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

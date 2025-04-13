@@ -7,8 +7,8 @@ class PokemonName
 {
     PokemonData data;
 public:
-    PokemonName(const int level, const int health, const int attack, const int defense, const int spAttack, const int spDefense, const int speed)
-        : data(level, health, attack, defense, spAttack, spDefense, speed) {}
+    PokemonName(const std::string& name, const int level, const int health, const int attack, const int defense, const int spAttack, const int spDefense, const int speed)
+        : data(name, level, health, attack, defense, spAttack, spDefense, speed) {}
 
     void DisplayStats() {
         std::cout << "Health: " << data.health << "\n";
