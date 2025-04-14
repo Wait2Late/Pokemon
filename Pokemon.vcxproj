@@ -204,13 +204,13 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="Pokemon.cpp" />
-    <ClCompile Include="Structs\PokemonStats.cpp" />
+    <ClCompile Include="Structs\PokemonData.cpp" />
     <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PocketMonster\Battle.h" />
     <ClInclude Include="PocketMonster\PokemonName.h" />
-    <ClInclude Include="Structs\PokemonStats.h" />
+    <ClInclude Include="Structs\PokemonData.h" />
     <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

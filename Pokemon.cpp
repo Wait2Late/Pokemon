@@ -1,8 +1,10 @@
 // Pokemon.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include <array>
 #include <iostream>
 
+#include "PocketMonster/Battle.h"
 #include "PocketMonster/PokemonName.h"
 
 int main()
@@ -20,10 +22,17 @@ int main()
     PokemonName Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
     PokemonName Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
 
-    PokemonName LegendaryPokemon[6] = { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };
+    std::array<PokemonName, 6> LegendaryPokemonTeam = { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };
+    // PokemonName LegendaryPokemon[6] = { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };
 
     PokemonName Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
 
+    int currentEnemyPokemon = 0;
+    Battle battle;
+    while (true)
+    {
+        battle.StartMenu(LegendaryPokemonTeam, Rattata, currentEnemyPokemon);
+    }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
