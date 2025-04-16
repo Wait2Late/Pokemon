@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <array>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -63,11 +64,4 @@ struct PokemonMoveData
     "Fly",
     "Light_That_Burns_The_Sky",
     "Outrage"};
-    
-
-    std::array<std::string, 4> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
-    {
-        
-        return std::array<std::string, 4> { move1, move2, move3, move4 };
-    }
 };

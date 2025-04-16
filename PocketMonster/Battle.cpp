@@ -20,7 +20,7 @@ void Battle::StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, Pokemon
     switch (choice)
     {
     case 1:
-        MoveList(currentPokemon, Rattata);
+        PickMove(currentPokemon, Rattata);
         break;
     case 2:
         currentPokemon.DisplayStats();
@@ -35,11 +35,16 @@ void Battle::StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, Pokemon
     }
 }
 
-void Battle::MoveList(PokemonName& currentPokemon, PokemonName& Rattata)
+void Battle::PickMove(PokemonName& currentPokemon, PokemonName& Rattata)
 {
-    std::cout << "1.Endeavor\n";
-    std::cout << "2.Quick Attack\n";
-    std::cout << "3.Double Team\n";
+    auto moves = Rattata.GetMoveList();
+
+    int i = 1;
+    for (const std::string& move : moves)
+    {
+        std::cout << i << ". " << move << "\n";
+        i++;
+    }
 
     int moveChoice;
     std::cin >> moveChoice;
@@ -47,35 +52,40 @@ void Battle::MoveList(PokemonName& currentPokemon, PokemonName& Rattata)
     switch (moveChoice)
     {
     case 1: 
-        std::cout << "Rattata used Endeavor!\n";
+        std::cout << "Rattata used " << moves[0] << "!\n";
         //TODO impelent an attack observer pattern
         AttackObserver(currentPokemon, Rattata, eMove::Endeavor);
         break;
     case 2:
-        std::cout << "Rattata used Quick Attack!\n";
+        std::cout << "Rattata used " << moves[1] << "!\n";
         //TODO implement this attack first 
         break;
     case 3:
+        std::cout << "Rattata used " << moves[2] << "!\n";
+
         std::cout << "Rattata used Double Team!\n";
         //TODO implement invisibility logic
         break;
+    case 4:
+        std::cout << "Rattata used " << moves[3] << "!\n";
+        //Don't have to impelemt this move
     default:
         std::cout << "Invalid choice. Please try again.\n";
-        MoveList(currentPokemon, Rattata);
+        PickMove(currentPokemon, Rattata);
         break;
     }
 }
 
 void Battle::AttackObserver(const PokemonName& reciever, const PokemonName& Attacker, eMove move)
 {
-    int health = reciever.data.health;
-    std::cout << reciever.data.name << "'s health: " << health << "\n";
+    // int health = reciever.data.health;
+    // std::cout << reciever.data.name << "'s health: " << health << "\n";
 
-    switch (move)
-    {
-        case eMove::Endeavor:
-            std::cout << reciever.data.name << " used Endeavor!\n";
-            // Implement the logic for Endeavor move
-            break;
-    }
+    // switch (move)
+    // {
+    //     case eMove::Endeavor:
+    //         std::cout << reciever.data.name << " used Endeavor!\n";
+    //         // Implement the logic for Endeavor move
+    //         break;
+    // }
 }

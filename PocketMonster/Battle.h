@@ -7,7 +7,7 @@ class Battle
 {
 public:
     void StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, PokemonName& Rattata, int& currentPokemonIndex);
-    void MoveList(PokemonName& currentPokemon, PokemonName& Rattata);
+    void PickMove(PokemonName& currentPokemon, PokemonName& Rattata);
     
 private:
 

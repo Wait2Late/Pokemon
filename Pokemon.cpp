@@ -7,6 +7,8 @@
 #include "PocketMonster/Battle.h"
 #include "PocketMonster/PokemonName.h"
 
+std::array<PokemonName, 6> CreateLegendaryPokemonTeam();
+
 int main()
 {
     std::cout << "Hello and welcome to Pokemon battle!\n";
@@ -15,25 +17,60 @@ int main()
     std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has six of level 100\n";
     std::cout << "As you can imagine those Pokemon are also legendary\n";
 
-    PokemonName MewTwo("Mewtwo", 100, 416, 350, 306, 447, 306, 394);
-    PokemonName Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
-    PokemonName Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
-    PokemonName Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
-    PokemonName Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
-    PokemonName Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
-
-    std::array<PokemonName, 6> LegendaryPokemonTeam = { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };
-    // PokemonName LegendaryPokemon[6] = { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };
+    std::array<PokemonName, 6> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
+    
 
     PokemonName Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
-
+    Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "HyperBeam");
+    
     int currentEnemyPokemon = 0;
     Battle battle;
     while (true)
     {
         battle.StartMenu(LegendaryPokemonTeam, Rattata, currentEnemyPokemon);
+        currentEnemyPokemon++;
     }
 }
+
+
+
+
+
+
+
+std::array<PokemonName, 6> CreateLegendaryPokemonTeam()
+{
+    PokemonName MewTwo("Mewtwo", 100, 416, 350, 306, 447, 306, 394);
+    MewTwo.CreateMoveList("Ice_Beam", "DoubleTeam", "Endeavor", "HyperBeam");
+        
+    PokemonName Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
+    Rayquaza.CreateMoveList("Judgment", "Flamethrower", "Aura_Spehere", "Draco_meteor");
+        
+    PokemonName Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
+    Arceus.CreateMoveList("Ice_Beam", "Surf", "Dragon_Claw", "Thunderbolt");
+        
+    PokemonName Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
+    Necrozma.CreateMoveList("Earthquake", "Psychic", "Shadow_Ball", "Fly");
+        
+    PokemonName Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
+    Kyurem.CreateMoveList("Light_That_Burns_The_Sky", "Outrage", "Endeavor", "HyperBeam");
+        
+    PokemonName Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
+    Lugia.CreateMoveList("Ice_Beam", "DoubleTeam", "Endeavor", "HyperBeam");
+
+    return { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };
+}
+
+
+
+
+
+
+
+
+
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
