@@ -3,6 +3,7 @@
 
 #include "PokemonName.h"
 
+
 class Battle
 {
 public:
@@ -11,6 +12,11 @@ public:
     
 private:
 
-    void AttackObserver(const PokemonName& reciever, const PokemonName& Attacker, eMove move);
+    void AttackObserver(const PokemonName& reciever, const PokemonName& Attacker, std::string move);
 
+    void MoveLogic(std::string move);
+    void BattleLogic(PokemonName& currentPokemon, PokemonName& Rattata);
+
+    
 };
+

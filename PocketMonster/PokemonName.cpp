@@ -1,5 +1,6 @@
 ﻿#include "PokemonName.h"
 
+
 void PokemonName::DisplayStats()
 {
     std::cout << "Name: " << data.name << "\n";
@@ -33,7 +34,7 @@ std::array<std::string, 4> PokemonName::CreateMoveList(const std::string& move1,
         }
     }
         
-    return moveList = {move1, move2, move3, move4};
+    return moveList = moves;
 }
 
 std::array<std::string, 4> PokemonName::GetMoveList() const

@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include <array>
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -64,4 +63,7 @@ struct PokemonMoveData
     "Fly",
     "Light_That_Burns_The_Sky",
     "Outrage"};
+
+
+    
 };

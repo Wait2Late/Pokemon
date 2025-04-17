@@ -1,7 +1,8 @@
 ﻿#pragma once
-#include <iostream>
 
 #include "../Structs/PokemonData.h"
+#include <iostream>
+
 
 class PokemonName
 {

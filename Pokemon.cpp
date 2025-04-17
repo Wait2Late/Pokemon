@@ -18,7 +18,6 @@ int main()
     std::cout << "As you can imagine those Pokemon are also legendary\n";
 
     std::array<PokemonName, 6> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
-    
 
     PokemonName Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
     Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "HyperBeam");

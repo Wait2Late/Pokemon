@@ -4,14 +4,16 @@
 
 #include "PokemonName.h"
 
+
 void Battle::StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, PokemonName& Rattata, int& currentPokemonIndex)
 {
     PokemonName currentPokemon = LegendaryPokemonTeam[currentPokemonIndex];
 
     std::cout << "Choose between 1-4\n";
     std::cout << "1. Choose a move\n";
-    std::cout << "2. Display enemy stats\n";
-    std::cout << "3. Exit\n";
+    std::cout << "2. Display your Pokemon stats\n";
+    std::cout << "3. Display enemy stats\n";
+    std::cout << "4. Exit\n";
 
     int choice;
     std::cin >> choice;
@@ -23,9 +25,12 @@ void Battle::StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, Pokemon
         PickMove(currentPokemon, Rattata);
         break;
     case 2:
-        currentPokemon.DisplayStats();
+        Rattata.DisplayStats();
         break;
     case 3:
+        currentPokemon.DisplayStats();
+        break;
+    case 4:
         std::cout << "Exiting the game.\n";
         break;
     default:
@@ -37,9 +42,10 @@ void Battle::StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, Pokemon
 
 void Battle::PickMove(PokemonName& currentPokemon, PokemonName& Rattata)
 {
-    auto moves = Rattata.GetMoveList();
+    std::cout << currentPokemon.data.name << " health: " << currentPokemon.data.health << "\n";
 
     int i = 1;
+    auto moves = Rattata.GetMoveList();
     for (const std::string& move : moves)
     {
         std::cout << i << ". " << move << "\n";
@@ -54,7 +60,7 @@ void Battle::PickMove(PokemonName& currentPokemon, PokemonName& Rattata)
     case 1: 
         std::cout << "Rattata used " << moves[0] << "!\n";
         //TODO impelent an attack observer pattern
-        AttackObserver(currentPokemon, Rattata, eMove::Endeavor);
+        AttackObserver(currentPokemon, Rattata, moves[0]);
         break;
     case 2:
         std::cout << "Rattata used " << moves[1] << "!\n";
@@ -76,10 +82,11 @@ void Battle::PickMove(PokemonName& currentPokemon, PokemonName& Rattata)
     }
 }
 
-void Battle::AttackObserver(const PokemonName& reciever, const PokemonName& Attacker, eMove move)
+void Battle::AttackObserver(const PokemonName& reciever, const PokemonName& Attacker, std::string move)
 {
-    // int health = reciever.data.health;
-    // std::cout << reciever.data.name << "'s health: " << health << "\n";
+    std::cout << Attacker.data.name << " used " << move << " on " << reciever.data.name << "!\n";
+    
+    std::cout << reciever.data.name << "'s health: " << reciever.data.health << "\n";
 
     // switch (move)
     // {
@@ -88,4 +95,44 @@ void Battle::AttackObserver(const PokemonName& reciever, const PokemonName& Atta
     //         // Implement the logic for Endeavor move
     //         break;
     // }
+}
+
+void Battle::MoveLogic(std::string move)
+{
+    //Not valid
+    // switch (move)
+    // {
+    // case "QuickAttack":
+    //     std::cout << "Quick Attack used!\n";
+    //     break;
+    // case "DoubleTeam":
+    //     std::cout << "Double Team used!\n";
+    //     break;
+    // case "Endeavor":
+    //     std::cout << "Endeavor used!\n";
+    //     break;
+    // default:
+    //     std::cout << move << " dealt 100 damage!\n";
+    //     break;
+    // }
+}
+
+void Battle::BattleLogic(PokemonName& currentPokemon, PokemonName& Rattata)
+{
+    int currentPokemonSpeed = currentPokemon.data.speed;
+    int RattataSpeed = Rattata.data.speed;
+
+    if (currentPokemonSpeed >= RattataSpeed)
+    {
+        std::cout << currentPokemon.data.name << " attacks first!\n";
+        // Implement the logic for the current Pokemon's attack
+    }
+    else
+    {
+        std::cout << Rattata.data.name << " attacks first!\n";
+        // Implement the logic for Rattata's attack
+    }
+    {
+        
+    }
 }
