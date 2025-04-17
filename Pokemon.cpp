@@ -24,7 +24,7 @@ int main()
     
     int currentEnemyPokemon = 0;
     Battle battle;
-    while (true)
+    while (Rattata.getIsAlive())
     {
         battle.StartMenu(LegendaryPokemonTeam, Rattata, currentEnemyPokemon);
         currentEnemyPokemon++;

@@ -4,6 +4,7 @@
 #include <iostream>
 
 
+
 class PokemonName
 {
 public:
@@ -14,9 +15,27 @@ public:
 
     std::array<std::string, 4> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4);
     std::array<std::string, 4> GetMoveList() const;
-public:
-    PokemonData data;
-    PokemonMoveData moveData;
+
+    std::string GetName() const { return data.name; }
+    int GetLevel() const { return data.level; }
+    void SetHealth(int health) { data.health = health; }
+    int GetHealth() const { return data.health; }
+    int GetAttack() const { return data.attack; }
+    int GetDefense() const { return data.defense; }
+    int GetSpAttack() const { return data.spAttack; }
+    int GetSpDefense() const { return data.spDefense; }
+    int GetSpeed() const { return data.speed; }
+
+    void SetAlive(bool alive) { data.isAlive = alive; }
+    bool getIsAlive() const { return data.isAlive; }
+    
+    void SetPriority(bool priority) { priorityMove = priority; }
+    bool GetPriority() const { return priorityMove; }
 private:
+    PokemonMoveData moveData;
+    PokemonData data;
+
     std::array<std::string, 4> moveList;
+
+    bool priorityMove = false;
 };

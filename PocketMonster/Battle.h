@@ -11,12 +11,8 @@ public:
     void PickMove(PokemonName& currentPokemon, PokemonName& Rattata);
     
 private:
-
-    void AttackObserver(const PokemonName& reciever, const PokemonName& Attacker, std::string move);
-
-    void MoveLogic(std::string move);
     void BattleLogic(PokemonName& currentPokemon, PokemonName& Rattata);
-
+    void DamageLogic(PokemonName& reciever, PokemonName& attacker, int moveChoice);
     
 };
 

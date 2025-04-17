@@ -1,6 +1,5 @@
 ﻿#include "PokemonName.h"
 
-
 void PokemonName::DisplayStats()
 {
     std::cout << "Name: " << data.name << "\n";
