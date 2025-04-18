@@ -21,6 +21,7 @@ int main()
 
     PokemonName Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
     Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "HyperBeam");
+    Rattata.SetHeldItem("FocusSash");
     
     int currentEnemyPokemon = 0;
     Battle battle;
@@ -28,6 +29,16 @@ int main()
     {
         battle.StartMenu(LegendaryPokemonTeam, Rattata, currentEnemyPokemon);
         currentEnemyPokemon++;
+        if (currentEnemyPokemon >= LegendaryPokemonTeam.size())
+        {
+            std::cout << "Congratulations and welcome to the hall of fame!\n";
+            std::cout << "You have defeated all the Legendary Pokemon!\n";
+            break;
+        }
+    }
+    if (!Rattata.getIsAlive())
+    {
+        std::cout << "Your " << Rattata.GetName() << " has fainted!\n";
     }
 }
 
@@ -40,22 +51,22 @@ int main()
 std::array<PokemonName, 6> CreateLegendaryPokemonTeam()
 {
     PokemonName MewTwo("Mewtwo", 100, 416, 350, 306, 447, 306, 394);
-    MewTwo.CreateMoveList("Ice_Beam", "DoubleTeam", "Endeavor", "HyperBeam");
+    MewTwo.CreateMoveList("Ice_Beam", "Aura_Spehere", "Psychic", "HyperBeam");
         
     PokemonName Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
-    Rayquaza.CreateMoveList("Judgment", "Flamethrower", "Aura_Spehere", "Draco_meteor");
+    Rayquaza.CreateMoveList("Ice_Beam", "Flamethrower", "Aura_Spehere", "Draco_meteor");
         
     PokemonName Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
-    Arceus.CreateMoveList("Ice_Beam", "Surf", "Dragon_Claw", "Thunderbolt");
+    Arceus.CreateMoveList("Judgment", "Surf", "Dragon_Claw", "Thunderbolt");
         
     PokemonName Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
-    Necrozma.CreateMoveList("Earthquake", "Psychic", "Shadow_Ball", "Fly");
+    Necrozma.CreateMoveList("Earthquake", "Psychic", "Light_That_Burns_The_Sky", "Fly");
         
     PokemonName Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
-    Kyurem.CreateMoveList("Light_That_Burns_The_Sky", "Outrage", "Endeavor", "HyperBeam");
+    Kyurem.CreateMoveList("Ice_Beam", "Outrage", "Dragon_Claw", "HyperBeam");
         
     PokemonName Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
-    Lugia.CreateMoveList("Ice_Beam", "DoubleTeam", "Endeavor", "HyperBeam");
+    Lugia.CreateMoveList("Ice_Beam", "Surf", "Psychic", "HyperBeam");
 
     return { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };
 }

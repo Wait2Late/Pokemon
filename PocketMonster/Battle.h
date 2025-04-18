@@ -11,7 +11,6 @@ public:
     void PickMove(PokemonName& currentPokemon, PokemonName& Rattata);
     
 private:
-    void BattleLogic(PokemonName& currentPokemon, PokemonName& Rattata);
     void DamageLogic(PokemonName& reciever, PokemonName& attacker, int moveChoice);
     
 };

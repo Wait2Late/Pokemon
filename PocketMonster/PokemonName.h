@@ -28,13 +28,20 @@ public:
 
     void SetAlive(bool alive) { data.isAlive = alive; }
     bool getIsAlive() const { return data.isAlive; }
+
+    void SetHitAccuracy(int accuracy) { data.hitAccuracy = accuracy; }
+    int GetHitAccuracy() const { return data.hitAccuracy; }
     
     void SetPriority(bool priority) { priorityMove = priority; }
     bool GetPriority() const { return priorityMove; }
+
+    void SetHeldItem(const std::string& item) { data.heldItem = item; }
+    std::string GetHeldItem() const { return data.heldItem; }
 private:
     PokemonMoveData moveData;
     PokemonData data;
 
+    std::vector<std::string> MoveList;
     std::array<std::string, 4> moveList;
 
     bool priorityMove = false;
