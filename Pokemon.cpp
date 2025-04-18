@@ -41,6 +41,10 @@ int main()
         std::cout << "Your " << Rattata.GetName() << " has fainted!\n";
         std::cout << "You have lost the battle!\n";
     }
+
+    int num = 0;
+    std::cout << "Press any key to continue";
+    std::cin >> num;
 }
 
 
