@@ -13,9 +13,11 @@ void PokemonName::DisplayStats()
 }
 
 std::array<std::string, 4> PokemonName::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
+// std::vector<std::string> PokemonName::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
 {
     std::vector<std::string> movesList = moveData.movesList;
     const std::array<std::string, 4> moves = {move1, move2, move3, move4};
+    // std::vector<std::string> moves = {move1, move2, move3, move4};
     
     for (const std::string& move : moves)
     {
@@ -37,6 +39,7 @@ std::array<std::string, 4> PokemonName::CreateMoveList(const std::string& move1,
 }
 
 std::array<std::string, 4> PokemonName::GetMoveList() const
+// std::vector<std::string> PokemonName::GetMoveList() const
 {
     return moveList;
 }

@@ -14,7 +14,10 @@ public:
     void DisplayStats();
 
     std::array<std::string, 4> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4);
+    // std::vector<std::string> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4);
     std::array<std::string, 4> GetMoveList() const;
+    // std::vector<std::string> GetMoveList() const;
+    
 
     std::string GetName() const { return data.name; }
     int GetLevel() const { return data.level; }
@@ -41,7 +44,7 @@ private:
     PokemonMoveData moveData;
     PokemonData data;
 
-    std::vector<std::string> MoveList;
+    // std::vector<std::string> moveList;
     std::array<std::string, 4> moveList;
 
     bool priorityMove = false;

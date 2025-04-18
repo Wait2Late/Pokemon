@@ -15,12 +15,12 @@ int main()
     std::cout << "This is a simple Pokemon battle simulation.\n";
     std::cout << "You will play as Jimmy, the little boy from Route 1. Who anticipate to meet the Legendary Pokemon trainer\n";
     std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has six of level 100\n";
-    std::cout << "As you can imagine those Pokemon are also legendary\n";
+    std::cout << "As you can imagine those Pokemon are also legendary\n\n";
 
     std::array<PokemonName, 6> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
 
     PokemonName Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
-    Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "HyperBeam");
+    Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "");
     Rattata.SetHeldItem("FocusSash");
     
     int currentEnemyPokemon = 0;
@@ -32,13 +32,14 @@ int main()
         if (currentEnemyPokemon >= LegendaryPokemonTeam.size())
         {
             std::cout << "Congratulations and welcome to the hall of fame!\n";
-            std::cout << "You have defeated all the Legendary Pokemon!\n";
+            std::cout << "You have defeated the Legendary Pokemon traner!\n";
             break;
         }
     }
     if (!Rattata.getIsAlive())
     {
         std::cout << "Your " << Rattata.GetName() << " has fainted!\n";
+        std::cout << "You have lost the battle!\n";
     }
 }
 

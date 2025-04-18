@@ -41,5 +41,7 @@ struct PokemonMoveData
     "Shadow_Ball",
     "Fly",
     "Light_That_Burns_The_Sky",
-    "Outrage"};
+    "Outrage",
+    "",
+    };
 };

@@ -10,7 +10,7 @@
 void Battle::StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, PokemonName& Rattata, int& currentPokemonIndex)
 {
     PokemonName currentPokemon = LegendaryPokemonTeam[currentPokemonIndex];
-
+    std::cout << currentPokemon.GetName() << " has entered the battle" << "!\n";
     while (currentPokemon.getIsAlive() && Rattata.getIsAlive())
     {
         std::cout << "Choose between 1-4\n";
@@ -55,14 +55,26 @@ void Battle::PickMove(PokemonName& currentPokemon, PokemonName& Rattata)
     auto rattataMoves = Rattata.GetMoveList();
     for (const std::string& move : rattataMoves)
     {
+        if (move.empty())
+        {
+            continue;
+        }
         std::cout << i++ << ". " << move << "\n";
     }
 
     int moveChoice = 0;
     std::cin >> moveChoice;
     moveChoice--;
-
+    
     system("cls");
+    
+    if (moveChoice < 0 || moveChoice >= rattataMoves.size()-1)
+    {
+        std::cout << "Invalid move choice. Please try again.\n";
+        PickMove(currentPokemon, Rattata);
+        return;
+    }
+
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, currentPokemon.GetMoveList().size() - 1);
@@ -148,7 +160,6 @@ void Battle::DamageLogic(PokemonName& reciever, PokemonName& attacker, int moveC
     {
         std::cout << reciever.GetName() << " took " << damageDealt << " damage!\n";
     }
-    std::cout << reciever.GetName() << " has " << reciever.GetHealth() << " health left!\n";
 
     if (reciever.GetHeldItem() == "FocusSash")
     {
@@ -161,7 +172,11 @@ void Battle::DamageLogic(PokemonName& reciever, PokemonName& attacker, int moveC
     }
     else if (reciever.GetHealth() <= 0)
     {
-        std::cout << reciever.GetName() << " fainted!\n";
+        std::cout << reciever.GetName() << " has fainted!\n\n";
         reciever.SetAlive(false);
+    }
+    else
+    {
+        std::cout << reciever.GetName() << " has " << reciever.GetHealth() << " health left!\n\n";
     }
 }
