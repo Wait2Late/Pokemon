@@ -5,10 +5,10 @@
 
 
 
-class PokemonName
+class Pokemon
 {
 public:
-    PokemonName(const std::string& name, const int level, const int health, const int attack, const int defense, const int spAttack, const int spDefense, const int speed)
+    Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense, const int spAttack, const int spDefense, const int speed)
         : data(name, level, health, attack, defense, spAttack, spDefense, speed) {}
 
     void DisplayStats();

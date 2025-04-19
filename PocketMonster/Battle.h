@@ -1,17 +1,17 @@
 ﻿#pragma once
 #include <iostream>
 
-#include "PokemonName.h"
+#include "Pokemon.h"
 
 
 class Battle
 {
 public:
-    void StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, PokemonName& Rattata, int& currentPokemonIndex);
-    void PickMove(PokemonName& currentPokemon, PokemonName& Rattata);
+    void StartMenu(std::array<Pokemon, 6>& LegendaryPokemonTeam, Pokemon& Rattata, int& currentPokemonIndex);
+    void PickMove(Pokemon& currentPokemon, Pokemon& Rattata);
     
 private:
-    void DamageLogic(PokemonName& reciever, PokemonName& attacker, int moveChoice);
+    void DamageLogic(Pokemon& reciever, Pokemon& attacker, int moveChoice);
     
 };
 

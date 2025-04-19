@@ -5,9 +5,9 @@
 #include <iostream>
 
 #include "PocketMonster/Battle.h"
-#include "PocketMonster/PokemonName.h"
+#include "PocketMonster/Pokemon.h"
 
-std::array<PokemonName, 6> CreateLegendaryPokemonTeam();
+std::array<Pokemon, 6> CreateLegendaryPokemonTeam();
 
 int main()
 {
@@ -17,9 +17,9 @@ int main()
     std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has six of level 100\n";
     std::cout << "As you can imagine those Pokemon are also legendary\n\n";
 
-    std::array<PokemonName, 6> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
+    std::array<Pokemon, 6> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
 
-    PokemonName Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
+    Pokemon Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
     Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "");
     Rattata.SetHeldItem("FocusSash");
     
@@ -54,24 +54,24 @@ int main()
 
 
 
-std::array<PokemonName, 6> CreateLegendaryPokemonTeam()
+std::array<Pokemon, 6> CreateLegendaryPokemonTeam()
 {
-    PokemonName MewTwo("Mewtwo", 100, 416, 350, 306, 447, 306, 394);
+    Pokemon MewTwo("Mewtwo", 100, 416, 350, 306, 447, 306, 394);
     MewTwo.CreateMoveList("Ice_Beam", "Aura_Spehere", "Psychic", "HyperBeam");
         
-    PokemonName Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
+    Pokemon Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
     Rayquaza.CreateMoveList("Ice_Beam", "Flamethrower", "Aura_Spehere", "Draco_meteor");
         
-    PokemonName Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
+    Pokemon Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
     Arceus.CreateMoveList("Judgment", "Surf", "Dragon_Claw", "Thunderbolt");
         
-    PokemonName Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
+    Pokemon Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
     Necrozma.CreateMoveList("Earthquake", "Psychic", "Light_That_Burns_The_Sky", "Fly");
         
-    PokemonName Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
+    Pokemon Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
     Kyurem.CreateMoveList("Ice_Beam", "Outrage", "Dragon_Claw", "HyperBeam");
         
-    PokemonName Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
+    Pokemon Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
     Lugia.CreateMoveList("Ice_Beam", "Surf", "Psychic", "HyperBeam");
 
     return { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };

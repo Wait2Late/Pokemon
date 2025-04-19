@@ -1,6 +1,6 @@
-﻿#include "PokemonName.h"
+﻿#include "Pokemon.h"
 
-void PokemonName::DisplayStats()
+void Pokemon::DisplayStats()
 {
     std::cout << "Name: " << data.name << "\n";
     std::cout << "Level: " << data.level << "\n";
@@ -12,7 +12,7 @@ void PokemonName::DisplayStats()
     std::cout << "Speed: " << data.speed << "\n";
 }
 
-std::array<std::string, 4> PokemonName::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
+std::array<std::string, 4> Pokemon::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
 // std::vector<std::string> PokemonName::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
 {
     std::vector<std::string> movesList = moveData.movesList;
@@ -38,7 +38,7 @@ std::array<std::string, 4> PokemonName::CreateMoveList(const std::string& move1,
     return moveList = moves;
 }
 
-std::array<std::string, 4> PokemonName::GetMoveList() const
+std::array<std::string, 4> Pokemon::GetMoveList() const
 // std::vector<std::string> PokemonName::GetMoveList() const
 {
     return moveList;

@@ -4,12 +4,12 @@
 #include <map>
 #include <random>
 
-#include "PokemonName.h"
+#include "Pokemon.h"
 
 
-void Battle::StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, PokemonName& Rattata, int& currentPokemonIndex)
+void Battle::StartMenu(std::array<Pokemon, 6>& LegendaryPokemonTeam, Pokemon& Rattata, int& currentPokemonIndex)
 {
-    PokemonName currentPokemon = LegendaryPokemonTeam[currentPokemonIndex];
+    Pokemon currentPokemon = LegendaryPokemonTeam[currentPokemonIndex];
     std::cout << currentPokemon.GetName() << " has entered the battle" << "!\n";
     while (currentPokemon.getIsAlive() && Rattata.getIsAlive())
     {
@@ -45,7 +45,7 @@ void Battle::StartMenu(std::array<PokemonName, 6>& LegendaryPokemonTeam, Pokemon
     }
 }
 
-void Battle::PickMove(PokemonName& currentPokemon, PokemonName& Rattata)
+void Battle::PickMove(Pokemon& currentPokemon, Pokemon& Rattata)
 {
     std::cout << currentPokemon.GetName() << " health: " << currentPokemon.GetHealth() << "\n";
 
@@ -101,7 +101,7 @@ void Battle::PickMove(PokemonName& currentPokemon, PokemonName& Rattata)
     }
 }
 
-void Battle::DamageLogic(PokemonName& reciever, PokemonName& attacker, int moveChoice)
+void Battle::DamageLogic(Pokemon& reciever, Pokemon& attacker, int moveChoice)
 {
     if (!attacker.getIsAlive())
     {
