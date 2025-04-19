@@ -7,17 +7,17 @@
 #include "PocketMonster/Battle.h"
 #include "PocketMonster/Pokemon.h"
 
-std::array<Pokemon, 6> CreateLegendaryPokemonTeam();
+std::vector<Pokemon> CreateLegendaryPokemonTeam();
 
 int main()
 {
     std::cout << "Hello and welcome to Pokemon battle!\n";
     std::cout << "This is a simple Pokemon battle simulation.\n";
     std::cout << "You will play as Jimmy, the little boy from Route 1. Who anticipate to meet the Legendary Pokemon trainer\n";
-    std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has six of level 100\n";
+    std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has one of level 100\n";
     std::cout << "As you can imagine those Pokemon are also legendary\n\n";
 
-    std::array<Pokemon, 6> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
+    std::vector<Pokemon> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
 
     Pokemon Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
     Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "");
@@ -54,27 +54,27 @@ int main()
 
 
 
-std::array<Pokemon, 6> CreateLegendaryPokemonTeam()
+std::vector<Pokemon> CreateLegendaryPokemonTeam()
 {
     Pokemon MewTwo("Mewtwo", 100, 416, 350, 306, 447, 306, 394);
     MewTwo.CreateMoveList("Ice_Beam", "Aura_Spehere", "Psychic", "HyperBeam");
         
-    Pokemon Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
-    Rayquaza.CreateMoveList("Ice_Beam", "Flamethrower", "Aura_Spehere", "Draco_meteor");
-        
-    Pokemon Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
-    Arceus.CreateMoveList("Judgment", "Surf", "Dragon_Claw", "Thunderbolt");
-        
-    Pokemon Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
-    Necrozma.CreateMoveList("Earthquake", "Psychic", "Light_That_Burns_The_Sky", "Fly");
-        
-    Pokemon Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
-    Kyurem.CreateMoveList("Ice_Beam", "Outrage", "Dragon_Claw", "HyperBeam");
-        
-    Pokemon Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
-    Lugia.CreateMoveList("Ice_Beam", "Surf", "Psychic", "HyperBeam");
+    // Pokemon Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
+    // Rayquaza.CreateMoveList("Ice_Beam", "Flamethrower", "Aura_Spehere", "Draco_meteor");
+    //     
+    // Pokemon Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
+    // Arceus.CreateMoveList("Judgment", "Surf", "Dragon_Claw", "Thunderbolt");
+    //     
+    // Pokemon Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
+    // Necrozma.CreateMoveList("Earthquake", "Psychic", "Light_That_Burns_The_Sky", "Fly");
+    //     
+    // Pokemon Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
+    // Kyurem.CreateMoveList("Ice_Beam", "Outrage", "Dragon_Claw", "HyperBeam");
+    //     
+    // Pokemon Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
+    // Lugia.CreateMoveList("Ice_Beam", "Surf", "Psychic", "HyperBeam");
 
-    return { MewTwo, Rayquaza, Arceus, Necrozma, Kyurem, Lugia };
+    return { MewTwo/*, Rayquaza, Arceus, Necrozma, Kyurem, Lugia */};
 }
 
 

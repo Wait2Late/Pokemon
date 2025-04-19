@@ -1,13 +1,12 @@
 ﻿#include "Battle.h"
 
 #include <array>
-#include <map>
 #include <random>
 
 #include "Pokemon.h"
 
 
-void Battle::StartMenu(std::array<Pokemon, 6>& LegendaryPokemonTeam, Pokemon& Rattata, int& currentPokemonIndex)
+void Battle::StartMenu(std::vector<Pokemon> LegendaryPokemonTeam, Pokemon& Rattata, int& currentPokemonIndex)
 {
     Pokemon currentPokemon = LegendaryPokemonTeam[currentPokemonIndex];
     std::cout << currentPokemon.GetName() << " has entered the battle" << "!\n";
