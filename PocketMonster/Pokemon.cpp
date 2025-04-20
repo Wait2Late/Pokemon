@@ -5,7 +5,8 @@
 #include "../Move/Move.h"
 
 struct Pokemon::Impl {
-    std::array<std::unique_ptr<MoveBase>, 4> moves;
+    std::vector<std::unique_ptr<MoveBase>> moves;
+    // std::array<std::unique_ptr<MoveBase>, 4> moves;
 };
 
 Pokemon::Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense,
@@ -16,6 +17,82 @@ pImpl(std::make_unique<Impl>())
 }
 
 Pokemon::~Pokemon() = default;
+
+void Pokemon::LearnMoves(std::vector<std::unique_ptr<MoveBase>> movelist)
+{
+    if (movelist.size() > 4)
+    {
+        std::cerr << "Too many moves!\n";
+        return;
+    }
+    pImpl->moves.clear();
+    for (auto& move : movelist)
+    {
+        if (move == nullptr)
+        {
+            std::cerr << "Invalid move!\n";
+            return;
+        }
+        pImpl->moves.push_back(std::move(move));
+    }
+}
+
+std::vector<std::string> Pokemon::GetMoveNames() const
+{
+    std::vector<std::string> names;
+    for (const auto& move : pImpl->moves)
+    {
+        if (move != nullptr)
+        {
+            names.push_back(move ? move->GetMoveName() : "Empty");
+        }
+    }
+    return names;
+}
+
+
+std::array<std::string, 4> Pokemon::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
+// std::vector<std::string> PokemonName::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
+{
+    std::vector<std::string> movesList = moveData.movesList;
+    const std::array<std::string, 4> moves = {move1, move2, move3, move4};
+    // std::vector<std::string> moves = {move1, move2, move3, move4};
+    
+    for (const std::string& move : moves)
+    {
+        //Check if there are any duplicates
+        if (std::count(moves.begin(), moves.end(), move) > 1)
+        {
+            std::cerr << "Duplicate move: " << move << "\n";
+            return {};
+        }
+            
+        if (std::find(movesList.begin(), movesList.end(), move) == movesList.end())
+        {
+            std::cerr << "Invalid move: " << move << "\n";
+            return {};
+        }
+    }
+        
+    return moveList = moves;
+}
+
+std::array<std::string, 4> Pokemon::GetMoveList() const
+// std::vector<std::string> PokemonName::GetMoveList() const
+{
+    return moveList;
+}
+
+int Pokemon::TakeDamage(int damage)
+{
+    data.health -= damage;
+    if (data.health <= 0)
+    {
+        data.isAlive = false;
+        std::cout << data.name << " has fainted!\n";
+    }
+    return data.health;
+}
 
 std::string Pokemon::GetName() const
 { return data.name; }
@@ -78,47 +155,4 @@ void Pokemon::DisplayStats()
     std::cout << "Special Attack: " << data.spAttack << "\n";
     std::cout << "Special Defense: " << data.spDefense << "\n";
     std::cout << "Speed: " << data.speed << "\n";
-}
-
-std::array<std::string, 4> Pokemon::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
-// std::vector<std::string> PokemonName::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
-{
-    std::vector<std::string> movesList = moveData.movesList;
-    const std::array<std::string, 4> moves = {move1, move2, move3, move4};
-    // std::vector<std::string> moves = {move1, move2, move3, move4};
-    
-    for (const std::string& move : moves)
-    {
-        //Check if there are any duplicates
-        if (std::count(moves.begin(), moves.end(), move) > 1)
-        {
-            std::cerr << "Duplicate move: " << move << "\n";
-            return {};
-        }
-            
-        if (std::find(movesList.begin(), movesList.end(), move) == movesList.end())
-        {
-            std::cerr << "Invalid move: " << move << "\n";
-            return {};
-        }
-    }
-        
-    return moveList = moves;
-}
-
-std::array<std::string, 4> Pokemon::GetMoveList() const
-// std::vector<std::string> PokemonName::GetMoveList() const
-{
-    return moveList;
-}
-
-int Pokemon::TakeDamage(int damage)
-{
-    data.health -= damage;
-    if (data.health <= 0)
-    {
-        data.isAlive = false;
-        std::cout << data.name << " has fainted!\n";
-    }
-    return data.health;
 }

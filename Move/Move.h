@@ -27,6 +27,11 @@ public:
         return damage;
     }
 
+    std::string GetMoveName()
+    {
+        return name;
+    }
+
 protected:
     std::string name;
     int power;

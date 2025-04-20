@@ -5,18 +5,24 @@
 #include <iostream>
 
 #include "PocketMonster/Battle.h"
+#include "PocketMonster/Mewtwo.h"
 #include "PocketMonster/Pokemon.h"
 
 // std::vector<Pokemon> CreateLegendaryPokemonTeam();
 
 int main()
 {
+    Mewtwo mewtwo;
+    
+    
+
+    
     std::cout << "Hello and welcome to Pokemon battle!\n";
     std::cout << "This is a simple Pokemon battle simulation.\n";
     std::cout << "You will play as Jimmy, the little boy from Route 1. Who anticipate to meet the Legendary Pokemon trainer\n";
     std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has one of level 100\n";
     std::cout << "As you can imagine those Pokemon are also legendary\n\n";
-
+    
     // std::vector<Pokemon> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
 
     // Pokemon Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);

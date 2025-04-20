@@ -7,6 +7,8 @@
 
 // class MoveBase;
 
+class MoveBase;
+
 class Pokemon
 {
 public:
@@ -45,7 +47,8 @@ public:
 
     int TakeDamage(int damage);
 
-    
+    void LearnMoves(std::vector<std::unique_ptr<MoveBase>> movelist);
+    std::vector<std::string> GetMoveNames() const;
 
 protected:
     PokemonMoveData moveData;
