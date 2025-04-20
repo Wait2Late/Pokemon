@@ -1,11 +1,21 @@
 ﻿#include "Pokemon.h"
 
 #include <array>
+#include <iostream>
+#include "../Move/Move.h"
+
+struct Pokemon::Impl {
+    std::array<std::unique_ptr<MoveBase>, 4> moves;
+};
 
 Pokemon::Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense,
-    const int spAttack, const int spDefense, const int speed): data(name, level, health, attack, defense, spAttack, spDefense, speed)
+                 const int spAttack, const int spDefense, const int speed):
+data(name, level, health, attack, defense, spAttack, spDefense, speed),
+pImpl(std::make_unique<Impl>())
 {
 }
+
+Pokemon::~Pokemon() = default;
 
 std::string Pokemon::GetName() const
 { return data.name; }

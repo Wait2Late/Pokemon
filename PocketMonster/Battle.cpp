@@ -8,40 +8,40 @@
 
 void Battle::StartMenu(std::vector<Pokemon> LegendaryPokemonTeam, Pokemon& Rattata, int& currentPokemonIndex)
 {
-    Pokemon currentPokemon = LegendaryPokemonTeam[currentPokemonIndex];
-    std::cout << currentPokemon.GetName() << " has entered the battle" << "!\n";
-    while (currentPokemon.getIsAlive() && Rattata.getIsAlive())
-    {
-        std::cout << "Choose between 1-4\n";
-        std::cout << "1. Choose a move\n";
-        std::cout << "2. Display your Pokemon stats\n";
-        std::cout << "3. Display enemy stats\n";
-        std::cout << "4. Exit\n";
-
-        int choice;
-        std::cin >> choice;
-        system("cls");
-
-        switch (choice)
-        {
-        case 1:
-            PickMove(currentPokemon, Rattata);
-            break;
-        case 2:
-            Rattata.DisplayStats();
-            break;
-        case 3:
-            currentPokemon.DisplayStats();
-            break;
-        case 4:
-            std::cout << "Exiting the game.\n";
-            break;
-        default:
-            std::cout << "Invalid choice. Please try again.\n";
-            StartMenu(LegendaryPokemonTeam, Rattata, currentPokemonIndex);
-            break;
-        }
-    }
+    // Pokemon currentPokemon = LegendaryPokemonTeam[currentPokemonIndex];
+    // std::cout << currentPokemon.GetName() << " has entered the battle" << "!\n";
+    // while (currentPokemon.getIsAlive() && Rattata.getIsAlive())
+    // {
+    //     std::cout << "Choose between 1-4\n";
+    //     std::cout << "1. Choose a move\n";
+    //     std::cout << "2. Display your Pokemon stats\n";
+    //     std::cout << "3. Display enemy stats\n";
+    //     std::cout << "4. Exit\n";
+    //
+    //     int choice;
+    //     std::cin >> choice;
+    //     system("cls");
+    //
+    //     switch (choice)
+    //     {
+    //     case 1:
+    //         PickMove(currentPokemon, Rattata);
+    //         break;
+    //     case 2:
+    //         Rattata.DisplayStats();
+    //         break;
+    //     case 3:
+    //         currentPokemon.DisplayStats();
+    //         break;
+    //     case 4:
+    //         std::cout << "Exiting the game.\n";
+    //         break;
+    //     default:
+    //         std::cout << "Invalid choice. Please try again.\n";
+    //         StartMenu(LegendaryPokemonTeam, Rattata, currentPokemonIndex);
+    //         break;
+    //     }
+    // }
 }
 
 void Battle::PickMove(Pokemon& currentPokemon, Pokemon& Rattata)

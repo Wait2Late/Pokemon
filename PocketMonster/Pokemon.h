@@ -1,7 +1,7 @@
 ﻿#pragma once
 
-#include <iostream>
 #include <array>
+#include <memory>
 
 #include "../Structs/PokemonData.h"
 
@@ -12,6 +12,7 @@ class Pokemon
 public:
     Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense, const int spAttack, const int spDefense, const int speed);
 
+    ~Pokemon();
     void DisplayStats();
 
     std::array<std::string, 4> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4);
@@ -44,16 +45,21 @@ public:
 
     int TakeDamage(int damage);
 
+    
+
 protected:
     PokemonMoveData moveData;
     PokemonData data;
 
     // std::vector<MoveBase> moves;
     // std::array<MoveBase, 4> moves;
+    // std::array<std::unique_ptr<MoveBase>, 4> moves;
 
     bool priorityMove = false;
 private:
-
+    struct Impl;
+    std::unique_ptr<Impl> pImpl;
+    
     // std::vector<std::string> moveList;
     std::array<std::string, 4> moveList;
 
