@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include <array>
+
 #include "../Structs/PokemonData.h"
 #include <iostream>
 

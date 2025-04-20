@@ -1,5 +1,7 @@
 ﻿#include "Pokemon.h"
 
+#include <array>
+
 void Pokemon::DisplayStats()
 {
     std::cout << "Name: " << data.name << "\n";
