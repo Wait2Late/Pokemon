@@ -127,7 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Move\DoubleTeam.cpp" />
+    <ClCompile Include="Move\Endeavor.cpp" />
+    <ClCompile Include="Move\Hyper Fang.cpp" />
+    <ClCompile Include="Move\HyperBeam.cpp" />
+    <ClCompile Include="Move\IceBeam.cpp" />
+    <ClCompile Include="Move\Move.cpp" />
+    <ClCompile Include="Move\Psychic.cpp" />
+    <ClCompile Include="Move\QuickAttack.cpp" />
+    <ClCompile Include="Move\Thunderbolt.cpp" />
     <ClCompile Include="PocketMonster\Battle.cpp" />
+    <ClCompile Include="PocketMonster\Mewtwo.cpp" />
     <ClCompile Include="PocketMonster\Pokemon.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -204,10 +214,22 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PocketMonster\Rattata.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Move\DoubleTeam.h" />
+    <ClInclude Include="Move\Endeavor.h" />
+    <ClInclude Include="Move\Hyper Fang.h" />
+    <ClInclude Include="Move\HyperBeam.h" />
+    <ClInclude Include="Move\IceBeam.h" />
+    <ClInclude Include="Move\Move.h" />
+    <ClInclude Include="Move\Psychic.h" />
+    <ClInclude Include="Move\QuickAttack.h" />
+    <ClInclude Include="Move\Thunderbolt.h" />
     <ClInclude Include="PocketMonster\Battle.h" />
+    <ClInclude Include="PocketMonster\Mewtwo.h" />
     <ClInclude Include="PocketMonster\Pokemon.h" />
+    <ClInclude Include="PocketMonster\Rattata.h" />
     <ClInclude Include="Structs\PokemonData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

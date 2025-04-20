@@ -19,39 +19,29 @@ int main()
 
     std::vector<Pokemon> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
 
-    Pokemon Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
-    Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "");
-    Rattata.SetHeldItem("FocusSash");
+    // Pokemon Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
+    // Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "");
+    // Rattata.SetHeldItem("FocusSash");
     
-    int currentEnemyPokemon = 0;
-    Battle battle;
-    while (Rattata.getIsAlive())
-    {
-        battle.StartMenu(LegendaryPokemonTeam, Rattata, currentEnemyPokemon);
-        currentEnemyPokemon++;
-        if (currentEnemyPokemon >= LegendaryPokemonTeam.size())
-        {
-            std::cout << "Congratulations and welcome to the hall of fame!\n";
-            std::cout << "You have defeated the Legendary Pokemon traner!\n";
-            break;
-        }
-    }
-    if (!Rattata.getIsAlive())
-    {
-        std::cout << "Your " << Rattata.GetName() << " has fainted!\n";
-        std::cout << "You have lost the battle!\n";
-    }
-
-    int num = 0;
-    std::cout << "Press any key to continue";
-    std::cin >> num;
-    
+    // int currentEnemyPokemon = 0;
+    // Battle battle;
+    // while (Rattata.getIsAlive())
+    // {
+    //     battle.StartMenu(LegendaryPokemonTeam, Rattata, currentEnemyPokemon);
+    //     currentEnemyPokemon++;
+    //     if (currentEnemyPokemon >= LegendaryPokemonTeam.size())
+    //     {
+    //         std::cout << "Congratulations and welcome to the hall of fame!\n";
+    //         std::cout << "You have defeated the Legendary Pokemon traner!\n";
+    //         break;
+    //     }
+    // }
+    // if (!Rattata.getIsAlive())
+    // {
+    //     std::cout << "Your " << Rattata.GetName() << " has fainted!\n";
+    //     std::cout << "You have lost the battle!\n";
+    // }
 }
-
-
-
-
-
 
 
 std::vector<Pokemon> CreateLegendaryPokemonTeam()

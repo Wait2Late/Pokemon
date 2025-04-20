@@ -1,17 +1,16 @@
 ﻿#pragma once
 
+#include <iostream>
 #include <array>
 
 #include "../Structs/PokemonData.h"
-#include <iostream>
 
-
+// class MoveBase;
 
 class Pokemon
 {
 public:
-    Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense, const int spAttack, const int spDefense, const int speed)
-        : data(name, level, health, attack, defense, spAttack, spDefense, speed) {}
+    Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense, const int spAttack, const int spDefense, const int speed);
 
     void DisplayStats();
 
@@ -21,33 +20,41 @@ public:
     // std::vector<std::string> GetMoveList() const;
     
 
-    std::string GetName() const { return data.name; }
-    int GetLevel() const { return data.level; }
-    void SetHealth(int health) { data.health = health; }
-    int GetHealth() const { return data.health; }
-    int GetAttack() const { return data.attack; }
-    int GetDefense() const { return data.defense; }
-    int GetSpAttack() const { return data.spAttack; }
-    int GetSpDefense() const { return data.spDefense; }
-    int GetSpeed() const { return data.speed; }
+    std::string GetName() const;
+    int GetLevel() const;
+    void SetHealth(int health);
+    int GetHealth() const;
+    int GetAttack() const;
+    int GetDefense() const;
+    int GetSpAttack() const;
+    int GetSpDefense() const;
+    int GetSpeed() const;
 
-    void SetAlive(bool alive) { data.isAlive = alive; }
-    bool getIsAlive() const { return data.isAlive; }
+    void SetAlive(bool alive);
+    bool getIsAlive() const;
 
-    void SetHitAccuracy(int accuracy) { data.hitAccuracy = accuracy; }
-    int GetHitAccuracy() const { return data.hitAccuracy; }
-    
-    void SetPriority(bool priority) { priorityMove = priority; }
-    bool GetPriority() const { return priorityMove; }
+    void SetHitAccuracy(int accuracy);
+    int GetHitAccuracy() const;
 
-    void SetHeldItem(const std::string& item) { data.heldItem = item; }
-    std::string GetHeldItem() const { return data.heldItem; }
-private:
+    void SetPriority(bool priority);
+    bool GetPriority() const;
+
+    void SetHeldItem(const std::string& item);
+    std::string GetHeldItem() const;
+
+    int TakeDamage(int damage);
+
+protected:
     PokemonMoveData moveData;
     PokemonData data;
+
+    // std::vector<MoveBase> moves;
+    // std::array<MoveBase, 4> moves;
+
+    bool priorityMove = false;
+private:
 
     // std::vector<std::string> moveList;
     std::array<std::string, 4> moveList;
 
-    bool priorityMove = false;
 };

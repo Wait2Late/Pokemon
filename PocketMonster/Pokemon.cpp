@@ -2,6 +2,62 @@
 
 #include <array>
 
+Pokemon::Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense,
+    const int spAttack, const int spDefense, const int speed): data(name, level, health, attack, defense, spAttack, spDefense, speed)
+{
+}
+
+std::string Pokemon::GetName() const
+{ return data.name; }
+
+int Pokemon::GetLevel() const
+{ return data.level; }
+
+void Pokemon::SetHealth(int health)
+{ data.health = health; }
+
+int Pokemon::GetHealth() const
+{ return data.health; }
+
+int Pokemon::GetAttack() const
+{ return data.attack; }
+
+int Pokemon::GetDefense() const
+{ return data.defense; }
+
+int Pokemon::GetSpAttack() const
+{ return data.spAttack; }
+
+int Pokemon::GetSpDefense() const
+{ return data.spDefense; }
+
+int Pokemon::GetSpeed() const
+{ return data.speed; }
+
+void Pokemon::SetAlive(bool alive)
+{ data.isAlive = alive; }
+
+bool Pokemon::getIsAlive() const
+{ return data.isAlive; }
+
+void Pokemon::SetHitAccuracy(int accuracy)
+{ data.hitAccuracy = accuracy; }
+
+int Pokemon::GetHitAccuracy() const
+{ return data.hitAccuracy; }
+
+void Pokemon::SetPriority(bool priority)
+{ priorityMove = priority; }
+
+bool Pokemon::GetPriority() const
+{ return priorityMove; }
+
+void Pokemon::SetHeldItem(const std::string& item)
+{ data.heldItem = item; }
+
+std::string Pokemon::GetHeldItem() const
+{ return data.heldItem; }
+
 void Pokemon::DisplayStats()
 {
     std::cout << "Name: " << data.name << "\n";
@@ -44,4 +100,15 @@ std::array<std::string, 4> Pokemon::GetMoveList() const
 // std::vector<std::string> PokemonName::GetMoveList() const
 {
     return moveList;
+}
+
+int Pokemon::TakeDamage(int damage)
+{
+    data.health -= damage;
+    if (data.health <= 0)
+    {
+        data.isAlive = false;
+        std::cout << data.name << " has fainted!\n";
+    }
+    return data.health;
 }
