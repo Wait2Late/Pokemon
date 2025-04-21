@@ -12,9 +12,11 @@ class MoveBase;
 class Pokemon
 {
 public:
-    Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense, const int spAttack, const int spDefense, const int speed);
+    Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense,
+                    const int spAttack, const int spDefense, const int speed);
 
-    ~Pokemon();
+    virtual ~Pokemon();
+    
     void DisplayStats();
 
     std::array<std::string, 4> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4);
@@ -47,8 +49,9 @@ public:
 
     int TakeDamage(int damage);
 
-    void LearnMoves(std::vector<std::unique_ptr<MoveBase>> movelist);
+    void LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist);
     std::vector<std::string> GetMoveNames() const;
+    void UseMove(std::string moveName, Pokemon& target);
 
 protected:
     PokemonMoveData moveData;

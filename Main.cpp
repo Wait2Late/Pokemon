@@ -1,21 +1,73 @@
 // Pokemon.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include <algorithm>
 #include <array>
 #include <iostream>
 
+#include "Move/DoubleTeam.h"
+#include "Move/Endeavor.h"
+#include "Move/Hyper Fang.h"
+#include "Move/HyperBeam.h"
+#include "Move/IceBeam.h"
+#include "Move/Psychic.h"
+#include "Move/QuickAttack.h"
+#include "Move/Thunderbolt.h"
 #include "PocketMonster/Battle.h"
 #include "PocketMonster/Mewtwo.h"
 #include "PocketMonster/Pokemon.h"
+#include "PocketMonster/Rattata.h"
 
 // std::vector<Pokemon> CreateLegendaryPokemonTeam();
 
+class p
+{
+    
+};
+
 int main()
 {
-    Mewtwo mewtwo;
+    std::unique_ptr<Pokemon> mewtwo = std::make_unique<Mewtwo>();
+    std::vector<std::unique_ptr<MoveBase>> mewtwoMoves;
     
-    
+    mewtwoMoves.push_back(std::make_unique<Thunderbolt>());
+    mewtwoMoves.push_back(std::make_unique<IceBeam>());
+    mewtwoMoves.push_back(std::make_unique<HyperBeam>());
+    mewtwoMoves.push_back(std::make_unique<Psychic>());
 
+    mewtwo->LearnMoves(std::move(mewtwoMoves));
+    const auto moveNames = mewtwo->GetMoveNames();
+
+    std::unique_ptr<Pokemon> rattata = std::make_unique<Rattata>();
+    std::vector<std::unique_ptr<MoveBase>> rattataMoves;
+
+    rattataMoves.push_back(std::make_unique<QuickAttack>());
+    rattataMoves.push_back(std::make_unique<DoubleTeam>());
+    rattataMoves.push_back(std::make_unique<Endeavor>());
+    rattataMoves.push_back(std::make_unique<Hyper_Fang>());
+    
+    
+    int i = 1;
+    for (const auto& mewtwo_move : moveNames)
+    {
+        std::cout << i++ << ". " << mewtwo_move << "\n";
+    }
+
+    std::cin >> i;
+    i--;
+    
+    mewtwo->UseMove(moveNames[i], *rattata);
+
+    
+    
+    // Mewtwo rawMewtwo;
+    // Pokemon& mewtwoRef = rawMewtwo;  // Reference avoids slicing
+    // mewtwoRef.LearnMoves({
+    //     std::make_unique<Thunderbolt>(),
+    //     std::make_unique<IceBeam>(),
+    //     std::make_unique<HyperBeam>(),
+    //     std::make_unique<Psychic>()
+    // });
     
     std::cout << "Hello and welcome to Pokemon battle!\n";
     std::cout << "This is a simple Pokemon battle simulation.\n";

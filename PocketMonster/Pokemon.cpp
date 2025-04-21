@@ -6,7 +6,6 @@
 
 struct Pokemon::Impl {
     std::vector<std::unique_ptr<MoveBase>> moves;
-    // std::array<std::unique_ptr<MoveBase>, 4> moves;
 };
 
 Pokemon::Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense,
@@ -18,7 +17,7 @@ pImpl(std::make_unique<Impl>())
 
 Pokemon::~Pokemon() = default;
 
-void Pokemon::LearnMoves(std::vector<std::unique_ptr<MoveBase>> movelist)
+void Pokemon::LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist)
 {
     if (movelist.size() > 4)
     {
@@ -26,15 +25,16 @@ void Pokemon::LearnMoves(std::vector<std::unique_ptr<MoveBase>> movelist)
         return;
     }
     pImpl->moves.clear();
-    for (auto& move : movelist)
-    {
-        if (move == nullptr)
-        {
-            std::cerr << "Invalid move!\n";
-            return;
-        }
-        pImpl->moves.push_back(std::move(move));
-    }
+    // for (auto& move : movelist)
+    // {
+    //     if (move == nullptr)
+    //     {
+    //         std::cerr << "Invalid move!\n";
+    //         return;
+    //     }
+    //     // pImpl->moves.push_back(std::move(move));
+    // }
+    pImpl->moves = std::move(movelist);
 }
 
 std::vector<std::string> Pokemon::GetMoveNames() const
@@ -48,6 +48,11 @@ std::vector<std::string> Pokemon::GetMoveNames() const
         }
     }
     return names;
+}
+
+void Pokemon::UseMove(std::string moveName, Pokemon& target)
+{
+    std::cout << GetName() << " used " << moveName << " on " << target.GetName() << "\n";
 }
 
 

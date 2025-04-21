@@ -9,7 +9,7 @@ class MoveBase
 public:
     MoveBase(std::string n, int p) : name(std::move(n)), power(p) {}
     
-    virtual ~MoveBase() = default;
+    virtual ~MoveBase();
 
     virtual void ApplyEffect(Pokemon& user, Pokemon& target)
     {
