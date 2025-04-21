@@ -11,11 +11,11 @@ public:
     
     virtual ~MoveBase();
 
-    virtual void ApplyEffect(Pokemon& user, Pokemon& target)
+    virtual void ApplyEffect(Pokemon* user, Pokemon* target)
     {
-        int damage = CalculateDamage(user, target);
+        int damage = CalculateDamage(*user, *target);
         // int damage = 5;
-        target.TakeDamage(damage);
+        target->TakeDamage(damage);
     }
     
     virtual int CalculateDamage(Pokemon& user, Pokemon& target)
@@ -31,6 +31,7 @@ public:
     {
         return name;
     }
+
 
 protected:
     std::string name;

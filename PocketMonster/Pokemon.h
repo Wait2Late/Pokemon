@@ -51,15 +51,11 @@ public:
 
     void LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist);
     std::vector<std::string> GetMoveNames() const;
-    void UseMove(std::string moveName, Pokemon& target);
+    void UseMove(const std::string& moveName, Pokemon& target);
 
 protected:
     PokemonMoveData moveData;
     PokemonData data;
-
-    // std::vector<MoveBase> moves;
-    // std::array<MoveBase, 4> moves;
-    // std::array<std::unique_ptr<MoveBase>, 4> moves;
 
     bool priorityMove = false;
 private:

@@ -20,11 +20,6 @@
 
 // std::vector<Pokemon> CreateLegendaryPokemonTeam();
 
-class p
-{
-    
-};
-
 int main()
 {
     std::unique_ptr<Pokemon> mewtwo = std::make_unique<Mewtwo>();
@@ -34,9 +29,9 @@ int main()
     mewtwoMoves.push_back(std::make_unique<IceBeam>());
     mewtwoMoves.push_back(std::make_unique<HyperBeam>());
     mewtwoMoves.push_back(std::make_unique<Psychic>());
-
     mewtwo->LearnMoves(std::move(mewtwoMoves));
     const auto moveNames = mewtwo->GetMoveNames();
+
 
     std::unique_ptr<Pokemon> rattata = std::make_unique<Rattata>();
     std::vector<std::unique_ptr<MoveBase>> rattataMoves;
@@ -45,18 +40,23 @@ int main()
     rattataMoves.push_back(std::make_unique<DoubleTeam>());
     rattataMoves.push_back(std::make_unique<Endeavor>());
     rattataMoves.push_back(std::make_unique<Hyper_Fang>());
+    rattata->LearnMoves(std::move(rattataMoves));
     
     
-    int i = 1;
+    int choice = 1;
     for (const auto& mewtwo_move : moveNames)
     {
-        std::cout << i++ << ". " << mewtwo_move << "\n";
+        std::cout << choice++ << ". " << mewtwo_move << "\n";
     }
-
-    std::cin >> i;
-    i--;
+    while (!(std::cin >> choice) || choice < 1 || choice > 4)
+    {
+        choice--;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid input. Please enter 1-4: ";
+    }
     
-    mewtwo->UseMove(moveNames[i], *rattata);
+    mewtwo->UseMove(moveNames[choice], *rattata);
 
     
     

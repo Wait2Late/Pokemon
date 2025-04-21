@@ -25,15 +25,6 @@ void Pokemon::LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist)
         return;
     }
     pImpl->moves.clear();
-    // for (auto& move : movelist)
-    // {
-    //     if (move == nullptr)
-    //     {
-    //         std::cerr << "Invalid move!\n";
-    //         return;
-    //     }
-    //     // pImpl->moves.push_back(std::move(move));
-    // }
     pImpl->moves = std::move(movelist);
 }
 
@@ -50,9 +41,18 @@ std::vector<std::string> Pokemon::GetMoveNames() const
     return names;
 }
 
-void Pokemon::UseMove(std::string moveName, Pokemon& target)
+void Pokemon::UseMove(const std::string& moveName, Pokemon& target)
 {
-    std::cout << GetName() << " used " << moveName << " on " << target.GetName() << "\n";
+    std::cout << GetName() << " used " << moveName << " on " << target.GetName() << "\n\n";
+
+    for (const auto& move : pImpl->moves)
+    {
+        if (move->GetMoveName() != moveName)
+            continue;
+
+        move->ApplyEffect(this, &target);
+        break;
+    }
 }
 
 
