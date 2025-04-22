@@ -27,7 +27,7 @@ int main()
     mewtwoMoves.push_back(std::make_unique<HyperBeam>());
     mewtwoMoves.push_back(std::make_unique<Psychic>());
 
-    std::unique_ptr<Pokemon> mewtwo = std::make_unique<Mewtwo>();
+    std::unique_ptr<PokemonBase> mewtwo = std::make_unique<Mewtwo>();
     mewtwo->LearnMoves(std::move(mewtwoMoves));
     const auto moveNames = mewtwo->GetMoveNames();
 
@@ -38,7 +38,7 @@ int main()
     rattataMoves.push_back(std::make_unique<Endeavor>());
     rattataMoves.push_back(std::make_unique<Hyper_Fang>());
 
-    std::unique_ptr<Pokemon> rattata = std::make_unique<Rattata>();
+    std::unique_ptr<PokemonBase> rattata = std::make_unique<Rattata>();
     rattata->LearnMoves(std::move(rattataMoves));
 
     std::cout << "Hello and welcome to Pokemon battle!\n";

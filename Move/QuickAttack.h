@@ -7,12 +7,12 @@ public:
     QuickAttack(): MoveBase("QuickAttack", 40) {}
     ~QuickAttack() override;
     
-    void ApplyEffect(Pokemon* user, Pokemon* target) override
+    void ApplyEffect(PokemonBase* user, PokemonBase* target) override
     {
         user->SetPriority(true);
     }
 
-    int CalculateDamage(Pokemon* user, Pokemon* target) override
+    int CalculateDamage(PokemonBase* user, PokemonBase* target) override
     {
         return MoveBase::CalculateDamage(user, target);
     }

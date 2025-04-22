@@ -7,12 +7,12 @@ public:
     DoubleTeam() : MoveBase("Double Team", 0) {}
     ~DoubleTeam() override;
 
-    void ApplyEffect(Pokemon* user, Pokemon* target) override
+    void ApplyEffect(PokemonBase* user, PokemonBase* target) override
     {
         // user->SetHitAccuracy(user->GetHitAccuracy() + 100);
     }
 
-    int CalculateDamage(Pokemon* user, Pokemon* target) override
+    int CalculateDamage(PokemonBase* user, PokemonBase* target) override
     {
         user->SetHitAccuracy(user->GetHitAccuracy() + 100);
         

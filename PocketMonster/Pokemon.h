@@ -1,19 +1,18 @@
 ﻿#pragma once
 
-#include <array>
 #include <memory>
 
 #include "../Structs/PokemonData.h"
 
 class MoveBase;
 
-class Pokemon
+class PokemonBase
 {
 public:
-    Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense,
+    PokemonBase(const std::string& name, const int level, const int health, const int attack, const int defense,
                     const int spAttack, const int spDefense, const int speed);
 
-    virtual ~Pokemon();
+    virtual ~PokemonBase();
     
     void DisplayStats();
 
@@ -50,8 +49,8 @@ public:
     void LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist);
     std::vector<std::string> GetMoveNames() const;
     void RemoveMoveName(std::string moveName) const;
-    void EffectBeforeCombat(const std::string& moveName, Pokemon& target);
-    void MoveForCombat(const std::string& moveName, Pokemon& target);
+    void EffectBeforeCombat(const std::string& moveName, PokemonBase& target);
+    void MoveForCombat(const std::string& moveName, PokemonBase& target);
 
     void SetRecordMove(const std::string& moveName);
     std::string GetRecordedMove() const;

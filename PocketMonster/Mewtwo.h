@@ -1,9 +1,9 @@
 ﻿#pragma once
 #include "Pokemon.h"
 
-class Mewtwo : public Pokemon
+class Mewtwo : public PokemonBase
 {
 public:
-    Mewtwo() : Pokemon("Mewtwo", 100, 416, 350, 306, 447, 306, 394) {}
+    Mewtwo() : PokemonBase("Mewtwo", 100, 416, 350, 306, 447, 306, 394) {}
     ~Mewtwo() override;
 };

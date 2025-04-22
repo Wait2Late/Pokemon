@@ -4,7 +4,7 @@
 
 #include "PlayerTurnState.h"
 
-Battle::Battle(std::unique_ptr<Pokemon> player, std::unique_ptr<Pokemon> opponent):
+Battle::Battle(std::unique_ptr<PokemonBase> player, std::unique_ptr<PokemonBase> opponent):
     pPlayer(std::move(player)), pOpponent(std::move(opponent))
 {}
 

@@ -11,16 +11,11 @@ public:
     
     virtual ~MoveBase();
 
-    virtual void ApplyEffect(Pokemon* user, Pokemon* target)
+    virtual void ApplyEffect(PokemonBase* user, PokemonBase* target)
     {
-        // const int damage = CalculateDamage(*user, *target);
-        // target->TakeDamage(damage);
-
-        // std::cout << target->GetName() << " took " << damage << " damage!\n";
-        // std::cout << target->GetName() << " has " << target->GetHealth() << " health left.\n\n";
     }
     
-    virtual int CalculateDamage(Pokemon* user, Pokemon* target)
+    virtual int CalculateDamage(PokemonBase* user, PokemonBase* target)
     {
         int damage = (user->GetAttack() + power) - target->GetDefense();
         if (damage <= 0)
@@ -35,6 +30,7 @@ public:
     {
         return name;
     }
+    
 protected:
     std::string name;
     int power;

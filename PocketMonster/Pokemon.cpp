@@ -4,20 +4,20 @@
 #include <iostream>
 #include "../Move/Move.h"
 
-struct Pokemon::Impl {
+struct PokemonBase::Impl {
     std::vector<std::unique_ptr<MoveBase>> moves;
 };
 
-Pokemon::Pokemon(const std::string& name, const int level, const int health, const int attack, const int defense,
+PokemonBase::PokemonBase(const std::string& name, const int level, const int health, const int attack, const int defense,
                  const int spAttack, const int spDefense, const int speed):
 data(name, level, health, attack, defense, spAttack, spDefense, speed),
 pImpl(std::make_unique<Impl>())
 {
 }
 
-Pokemon::~Pokemon() = default;
+PokemonBase::~PokemonBase() = default;
 
-void Pokemon::LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist)
+void PokemonBase::LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist)
 {
     if (movelist.size() > 4)
     {
@@ -28,7 +28,7 @@ void Pokemon::LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist)
     pImpl->moves = std::move(movelist);
 }
 
-std::vector<std::string> Pokemon::GetMoveNames() const
+std::vector<std::string> PokemonBase::GetMoveNames() const
 {
     std::vector<std::string> names;
     for (const auto& move : pImpl->moves)
@@ -38,7 +38,7 @@ std::vector<std::string> Pokemon::GetMoveNames() const
     return names;
 }
 
-void Pokemon::EffectBeforeCombat(const std::string& moveName, Pokemon& target)
+void PokemonBase::EffectBeforeCombat(const std::string& moveName, PokemonBase& target)
 {
     for (const auto& move : pImpl->moves)
     {
@@ -50,7 +50,7 @@ void Pokemon::EffectBeforeCombat(const std::string& moveName, Pokemon& target)
     }
 }
 
-void Pokemon::MoveForCombat(const std::string& moveName, Pokemon& target)
+void PokemonBase::MoveForCombat(const std::string& moveName, PokemonBase& target)
 {
     std::cout << GetName() << " used " << moveName << " on " << target.GetName() << "\n\n";
 
@@ -66,7 +66,7 @@ void Pokemon::MoveForCombat(const std::string& moveName, Pokemon& target)
     }
 }
 
-void Pokemon::RemoveMoveName(std::string moveName) const
+void PokemonBase::RemoveMoveName(std::string moveName) const
 {
     const auto it = std::remove_if(
        pImpl->moves.begin(),
@@ -87,17 +87,17 @@ void Pokemon::RemoveMoveName(std::string moveName) const
     }   
 }
 
-void Pokemon::SetRecordMove(const std::string& moveName)
+void PokemonBase::SetRecordMove(const std::string& moveName)
 {
     unleashMove = moveName;
 }
 
-std::string Pokemon::GetRecordedMove() const
+std::string PokemonBase::GetRecordedMove() const
 {
     return unleashMove;
 }
 
-int Pokemon::TakeDamage(const int damage)
+int PokemonBase::TakeDamage(const int damage)
 {
     data.health -= damage;
     if (data.health <= 0)
@@ -108,58 +108,58 @@ int Pokemon::TakeDamage(const int damage)
     return data.health;
 }
 
-std::string Pokemon::GetName() const
+std::string PokemonBase::GetName() const
 { return data.name; }
 
-int Pokemon::GetLevel() const
+int PokemonBase::GetLevel() const
 { return data.level; }
 
-void Pokemon::SetHealth(int health)
+void PokemonBase::SetHealth(int health)
 { data.health = health; }
 
-int Pokemon::GetHealth() const
+int PokemonBase::GetHealth() const
 { return data.health; }
 
-int Pokemon::GetAttack() const
+int PokemonBase::GetAttack() const
 { return data.attack; }
 
-int Pokemon::GetDefense() const
+int PokemonBase::GetDefense() const
 { return data.defense; }
 
-int Pokemon::GetSpAttack() const
+int PokemonBase::GetSpAttack() const
 { return data.spAttack; }
 
-int Pokemon::GetSpDefense() const
+int PokemonBase::GetSpDefense() const
 { return data.spDefense; }
 
-int Pokemon::GetSpeed() const
+int PokemonBase::GetSpeed() const
 { return data.speed; }
 
-void Pokemon::SetAlive(bool alive)
+void PokemonBase::SetAlive(bool alive)
 { data.isAlive = alive; }
 
-bool Pokemon::getIsAlive() const
+bool PokemonBase::getIsAlive() const
 { return data.isAlive; }
 
-void Pokemon::SetHitAccuracy(int accuracy)
+void PokemonBase::SetHitAccuracy(int accuracy)
 { data.hitAccuracy = accuracy; }
 
-int Pokemon::GetHitAccuracy() const
+int PokemonBase::GetHitAccuracy() const
 { return data.hitAccuracy; }
 
-void Pokemon::SetPriority(bool priority)
+void PokemonBase::SetPriority(bool priority)
 { priorityMove = priority; }
 
-bool Pokemon::GetPriority() const
+bool PokemonBase::GetPriority() const
 { return priorityMove; }
 
-void Pokemon::SetHeldItem(const std::string& item)
+void PokemonBase::SetHeldItem(const std::string& item)
 { data.heldItem = item; }
 
-std::string Pokemon::GetHeldItem() const
+std::string PokemonBase::GetHeldItem() const
 { return data.heldItem; }
 
-void Pokemon::DisplayStats()
+void PokemonBase::DisplayStats()
 {
     std::cout << "Name: " << data.name << "\n";
     std::cout << "Level: " << data.level << "\n";

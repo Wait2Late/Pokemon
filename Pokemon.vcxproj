@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Item\FocusSash.cpp" />
+    <ClCompile Include="Item\ItemBase.cpp" />
     <ClCompile Include="Move\DoubleTeam.cpp" />
     <ClCompile Include="Move\Endeavor.cpp" />
     <ClCompile Include="Move\Hyper Fang.cpp" />
@@ -296,6 +298,8 @@
     <ClCompile Include="State\TurnState.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Item\FocusSash.h" />
+    <ClInclude Include="Item\ItemBase.h" />
     <ClInclude Include="Move\DoubleTeam.h" />
     <ClInclude Include="Move\Endeavor.h" />
     <ClInclude Include="Move\Hyper Fang.h" />

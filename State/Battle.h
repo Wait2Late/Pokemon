@@ -8,7 +8,7 @@
 class Battle
 {
 public:
-    Battle(std::unique_ptr<Pokemon> player, std::unique_ptr<Pokemon> opponent);
+    Battle(std::unique_ptr<PokemonBase> player, std::unique_ptr<PokemonBase> opponent);
 
     void Start();
     void SetState(std::unique_ptr<BattleState> newState);
@@ -16,12 +16,12 @@ public:
     void Update();
     
     // Getters
-    Pokemon& GetPlayer() { return *pPlayer; }
-    Pokemon& GetOpponent() { return *pOpponent; }
+    PokemonBase& GetPlayer() { return *pPlayer; }
+    PokemonBase& GetOpponent() { return *pOpponent; }
     BattleState* GetCurrentState() const { return pCurrentState.get(); }
 
 private:
-    std::unique_ptr<Pokemon> pPlayer;
-    std::unique_ptr<Pokemon> pOpponent;
+    std::unique_ptr<PokemonBase> pPlayer;
+    std::unique_ptr<PokemonBase> pOpponent;
     std::unique_ptr<BattleState> pCurrentState;
 };

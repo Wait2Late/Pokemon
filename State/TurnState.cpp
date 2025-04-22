@@ -5,7 +5,6 @@
 #include "Battle.h"
 #include "BattleOverState.h"
 #include "PlayerTurnState.h"
-#include "EnemyTurnState.h"
 
 void TurnState::Enter(Battle& battle)
 {
