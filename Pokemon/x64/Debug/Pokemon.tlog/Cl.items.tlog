@@ -16,3 +16,4 @@ C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\BattleOverState.cpp;C:\Users\w
 C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\BattleState.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\BattleState.obj
 C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\EnemyTurnState.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\EnemyTurnState.obj
 C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\PlayerTurnState.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\PlayerTurnState.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\TurnState.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\TurnState.obj

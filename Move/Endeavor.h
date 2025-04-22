@@ -5,17 +5,28 @@ class Endeavor : public MoveBase
 {
 public:
     Endeavor() : MoveBase("Endeavor", 0){}
-
     ~Endeavor() override;
-    // void ApplyEffect(Pokemon& user, Pokemon& target) override
-    // {
-    //     if (target.GetHealth() > user.GetHealth())
-    //     {
-    //         target.SetHealth(user.GetHealth());
-    //     }
-    //     else
-    //     {
-    //         std::cout << "Invalid use of Endeavor " << target.GetName() << " has less health than " << user.GetName() << "\n";
-    //     }
-    // }
+    
+    void ApplyEffect(Pokemon* user, Pokemon* target) override
+    {
+    }
+
+    int CalculateDamage(Pokemon* user, Pokemon* target) override
+    {
+        
+        if (target->GetHealth() > user->GetHealth())
+        {
+            int mewtwoHealth = target->GetHealth();
+            const int rattataHealth = user->GetHealth();
+
+            const int healthDiff = mewtwoHealth - rattataHealth;
+            return target->TakeDamage(healthDiff);
+        }
+        else
+        {
+            std::cout << "Invalid use of Endeavor " << target->GetName()
+            << " has less health than " << user->GetName() << "\n";
+            return target->TakeDamage(0);
+        }
+    }
 };

@@ -1,21 +1,17 @@
 ﻿#pragma once
 #include <memory>
 #include <memory>
-#include <vector>
 #include "BattleState.h"
-#include "EnemyTurnState.h"
-#include "PlayerTurnState.h"
 #include "../PocketMonster/Pokemon.h"
 
 
 class Battle
 {
 public:
-    Battle(std::unique_ptr<Pokemon> player, std::unique_ptr<Pokemon> opponent) :
-    pPlayer(std::move(player)), pOpponent(std::move(opponent)) {}
-    
+    Battle(std::unique_ptr<Pokemon> player, std::unique_ptr<Pokemon> opponent);
+
     void Start();
-    void ChangeState(const std::unique_ptr<BattleState>& newState);
+    void SetState(std::unique_ptr<BattleState> newState);
     void HandleInput(int input);
     void Update();
     

@@ -38,9 +38,19 @@ std::vector<std::string> Pokemon::GetMoveNames() const
     return names;
 }
 
+void Pokemon::EffectBeforeCombat(const std::string& moveName, Pokemon& target)
+{
+    for (const auto& move : pImpl->moves)
+    {
+        if (move->GetMoveName() != moveName)
+            continue;
 
+        move->ApplyEffect(this, &target);
+        break;
+    }
+}
 
-void Pokemon::UseMove(const std::string& moveName, Pokemon& target)
+void Pokemon::MoveForCombat(const std::string& moveName, Pokemon& target)
 {
     std::cout << GetName() << " used " << moveName << " on " << target.GetName() << "\n\n";
 
@@ -48,8 +58,10 @@ void Pokemon::UseMove(const std::string& moveName, Pokemon& target)
     {
         if (move->GetMoveName() != moveName)
             continue;
-
-        move->ApplyEffect(this, &target);
+        
+        move->CalculateDamage(this, &target);
+        
+        std::cout << target.GetName() << " has " << target.GetHealth() << " health left.\n\n";
         break;
     }
 }
@@ -75,39 +87,17 @@ void Pokemon::RemoveMoveName(std::string moveName) const
     }   
 }
 
-std::array<std::string, 4> Pokemon::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
-// std::vector<std::string> PokemonName::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
+void Pokemon::SetRecordMove(const std::string& moveName)
 {
-    std::vector<std::string> movesList = moveData.movesList;
-    const std::array<std::string, 4> moves = {move1, move2, move3, move4};
-    // std::vector<std::string> moves = {move1, move2, move3, move4};
-    
-    for (const std::string& move : moves)
-    {
-        //Check if there are any duplicates
-        if (std::count(moves.begin(), moves.end(), move) > 1)
-        {
-            std::cerr << "Duplicate move: " << move << "\n";
-            return {};
-        }
-            
-        if (std::find(movesList.begin(), movesList.end(), move) == movesList.end())
-        {
-            std::cerr << "Invalid move: " << move << "\n";
-            return {};
-        }
-    }
-        
-    return moveList = moves;
+    unleashMove = moveName;
 }
 
-std::array<std::string, 4> Pokemon::GetMoveList() const
-// std::vector<std::string> PokemonName::GetMoveList() const
+std::string Pokemon::GetRecordedMove() const
 {
-    return moveList;
+    return unleashMove;
 }
 
-int Pokemon::TakeDamage(int damage)
+int Pokemon::TakeDamage(const int damage)
 {
     data.health -= damage;
     if (data.health <= 0)

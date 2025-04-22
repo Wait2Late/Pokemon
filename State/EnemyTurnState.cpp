@@ -7,6 +7,7 @@
 #include <random>
 
 #include "BattleOverState.h"
+#include "TurnState.h"
 
 void EnemyTurnState::Enter(Battle& battle)
 {
@@ -17,33 +18,37 @@ void EnemyTurnState::Execute(Battle& battle)
 {
     auto& opponent = battle.GetOpponent();
     auto& player = battle.GetPlayer();
+
+    if (!opponent.getIsAlive())
+        return;
     
-    // Simple AI: Random move selection
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dist(0, opponent.GetMoveNames().size() - 1);
 
     const int moveIndex = dist(gen);
     const auto moveName= opponent.GetMoveNames()[moveIndex];
-    opponent.UseMove(moveName, player);
-    
-    // Transition to appropriate state
-    if (player.getIsAlive())
-    {
-        battle.ChangeState(std::make_unique<PlayerTurnState>());
-    }
-    else
-    {
-        battle.ChangeState(std::make_unique<BattleOverState>());
-    }
+
+    // opponent.UseMove(moveName, player);
+
+    opponent.SetRecordMove(moveName);
+
+    battle.SetState(std::make_unique<TurnState>());
+    // if (player.getIsAlive())
+    // {
+    //     battle.SetState(std::make_unique<PlayerTurnState>());
+    // }
+    // else
+    // {
+    //     battle.SetState(std::make_unique<BattleOverState>());
+    // }
 }
 
 void EnemyTurnState::Exit(Battle& battle)
 {
+    std::cout << battle.GetOpponent().GetName() << "'s turn ended.\n";
 }
 
 void EnemyTurnState::HandleInput(Battle& battle, int input)
 {
 }
-
-// ... other methods ...

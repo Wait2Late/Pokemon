@@ -2,7 +2,6 @@
 //
 
 #include <algorithm>
-#include <array>
 #include <iostream>
 
 #include "Move/DoubleTeam.h"
@@ -17,8 +16,8 @@
 #include "PocketMonster/Pokemon.h"
 #include "PocketMonster/Rattata.h"
 #include "State/Battle.h"
-
-// std::vector<Pokemon> CreateLegendaryPokemonTeam();
+#include "State/BattleOverState.h"
+#include "State/PlayerTurnState.h"
 
 int main()
 {
@@ -46,70 +45,29 @@ int main()
     std::cout << "This is a simple Pokemon battle simulation.\n";
     std::cout << "You will play as Jimmy, the little boy from Route 1. Who anticipate to meet the Legendary Pokemon trainer\n";
     std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has one of level 100\n";
-    std::cout << "As you can imagine those Pokemon are also legendary\n\n";
+    std::cout << "As you can imagine that Pokemon is also legendary\n\n";
     
     Battle battle(std::move(rattata), std::move(mewtwo));
     battle.Start();
 
+    // while (rattata->getIsAlive() && mewtwo->getIsAlive())
+    while (true)
+    {
+        if (auto* state = battle.GetCurrentState())
+        {
+            if (dynamic_cast<PlayerTurnState*>(state))
+            {
+                // battle.HandleInput(3);
+            }
+            
+            battle.Update();
 
-
-
-
-
-
-    
-    // int choice = 1;
-    // for (const auto& mewtwo_move : moveNames)
-    // {
-    //     std::cout << choice++ << ". " << mewtwo_move << "\n";
-    // }
-    // while (!(std::cin >> choice) || choice < 1 || choice > 4)
-    // {
-    //     choice--;
-    //     std::cin.clear();
-    //     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    //     std::cout << "Invalid input. Please enter 1-4: ";
-    // }
-    //
-    // mewtwo->UseMove(moveNames[choice], *rattata);
-
-    
-    
-    // Mewtwo rawMewtwo;
-    // Pokemon& mewtwoRef = rawMewtwo;  // Reference avoids slicing
-    // mewtwoRef.LearnMoves({
-    //     std::make_unique<Thunderbolt>(),
-    //     std::make_unique<IceBeam>(),
-    //     std::make_unique<HyperBeam>(),
-    //     std::make_unique<Psychic>()
-    // });
-    
-
-    
-    // std::vector<Pokemon> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
-
-    // Pokemon Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
-    // Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "");
-    // Rattata.SetHeldItem("FocusSash");
-    
-    // int currentEnemyPokemon = 0;
-    // Battle battle;
-    // while (Rattata.getIsAlive())
-    // {
-    //     battle.StartMenu(LegendaryPokemonTeam, Rattata, currentEnemyPokemon);
-    //     currentEnemyPokemon++;
-    //     if (currentEnemyPokemon >= LegendaryPokemonTeam.size())
-    //     {
-    //         std::cout << "Congratulations and welcome to the hall of fame!\n";
-    //         std::cout << "You have defeated the Legendary Pokemon traner!\n";
-    //         break;
-    //     }
-    // }
-    // if (!Rattata.getIsAlive())
-    // {
-    //     std::cout << "Your " << Rattata.GetName() << " has fainted!\n";
-    //     std::cout << "You have lost the battle!\n";
-    // }
+            // if (dynamic_cast<BattleOverState*>(state))
+            // {
+            //     break;
+            // }
+        }
+    }
 }
 
 

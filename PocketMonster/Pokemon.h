@@ -17,10 +17,10 @@ public:
     
     void DisplayStats();
 
-    std::array<std::string, 4> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4);
-    // std::vector<std::string> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4);
-    std::array<std::string, 4> GetMoveList() const;
-    // std::vector<std::string> GetMoveList() const;
+    // std::array<std::string, 4> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4);
+    // // std::vector<std::string> CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4);
+    // std::array<std::string, 4> GetMoveList() const;
+    // // std::vector<std::string> GetMoveList() const;
     
 
     std::string GetName() const;
@@ -50,10 +50,13 @@ public:
     void LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist);
     std::vector<std::string> GetMoveNames() const;
     void RemoveMoveName(std::string moveName) const;
-    void UseMove(const std::string& moveName, Pokemon& target);
+    void EffectBeforeCombat(const std::string& moveName, Pokemon& target);
+    void MoveForCombat(const std::string& moveName, Pokemon& target);
+
+    void SetRecordMove(const std::string& moveName);
+    std::string GetRecordedMove() const;
 
 protected:
-
     bool priorityMove = false;
 private:
     PokemonMoveData moveData;
@@ -61,8 +64,9 @@ private:
     
     struct Impl;
     std::unique_ptr<Impl> pImpl;
-    
+
+    std::string unleashMove;
     // std::vector<std::string> moveList;
-    std::array<std::string, 4> moveList;
+    // std::array<std::string, 4> moveList;
 
 };

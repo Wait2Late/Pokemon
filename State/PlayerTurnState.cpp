@@ -3,11 +3,13 @@
 #include <iostream>
 
 #include "Battle.h"
+#include "BattleOverState.h"
 #include "EnemyTurnState.h"
 
 void PlayerTurnState::Enter(Battle& battle)
 {
     std::cout << battle.GetPlayer().GetName() << "'s turn!\n";
+    DisplayMoves(battle);
 }
 
 void PlayerTurnState::Execute(Battle& battle)
@@ -16,6 +18,7 @@ void PlayerTurnState::Execute(Battle& battle)
 
 void PlayerTurnState::Exit(Battle& battle)
 {
+    std::cout << battle.GetPlayer().GetName() << "'s turn ended.\n";
 }
 
 void PlayerTurnState::HandleInput(Battle& battle, const int input)
@@ -23,20 +26,27 @@ void PlayerTurnState::HandleInput(Battle& battle, const int input)
     auto& player = battle.GetPlayer();
     auto& opponent = battle.GetOpponent();
 
-    const std::string moveName = player.GetMoveNames()[input];
-    player.UseMove(moveName, opponent);
+    const auto& moveNames = player.GetMoveNames();
+    const auto moveName = moveNames[input];
 
-    if (!opponent.getIsAlive())
-        return;
+    player.SetRecordMove(moveName);
+    // player.UseMove(moveName, opponent);
 
-    battle.ChangeState(std::make_unique<EnemyTurnState>());
+    if (opponent.getIsAlive())
+    {
+        battle.SetState(std::make_unique<EnemyTurnState>());
+    }
+    else
+    {
+        battle.SetState(std::make_unique<BattleOverState>());
+    }
 }
 
 void PlayerTurnState::DisplayMoves(Battle& battle)
 {
     auto moveNames = battle.GetPlayer().GetMoveNames();
     
-    std::cout << "Choose a move: ";
+    std::cout << "Choose a move: \n";
 
     for (int i = 0; i < moveNames.size(); ++i)
     {
@@ -46,7 +56,7 @@ void PlayerTurnState::DisplayMoves(Battle& battle)
     int input;
     std::cin >> input;
     input--;
-    if (input < 1 || input > moveNames.size())
+    if (input < 0 || input > moveNames.size())
     {
         std::cout << "Invalid choice. Please try again.\n";
         return;
