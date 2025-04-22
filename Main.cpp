@@ -28,7 +28,7 @@ int main()
     mewtwoMoves.push_back(std::make_unique<HyperBeam>());
     mewtwoMoves.push_back(std::make_unique<Psychic>());
 
-    const std::unique_ptr<Pokemon> mewtwo = std::make_unique<Mewtwo>();
+    std::unique_ptr<Pokemon> mewtwo = std::make_unique<Mewtwo>();
     mewtwo->LearnMoves(std::move(mewtwoMoves));
     const auto moveNames = mewtwo->GetMoveNames();
 
@@ -48,7 +48,7 @@ int main()
     std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has one of level 100\n";
     std::cout << "As you can imagine those Pokemon are also legendary\n\n";
     
-    Battle battle(*rattata, *mewtwo);
+    Battle battle(std::move(rattata), std::move(mewtwo));
     battle.Start();
 
 

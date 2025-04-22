@@ -11,11 +11,9 @@
 class Battle
 {
 public:
-    Battle(Pokemon& player, Pokemon& opponent)
-    {
-
-    }
-
+    Battle(std::unique_ptr<Pokemon> player, std::unique_ptr<Pokemon> opponent) :
+    pPlayer(std::move(player)), pOpponent(std::move(opponent)) {}
+    
     void Start();
     void ChangeState(const std::unique_ptr<BattleState>& newState);
     void HandleInput(int input);
