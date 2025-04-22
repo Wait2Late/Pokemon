@@ -33,13 +33,12 @@ std::vector<std::string> Pokemon::GetMoveNames() const
     std::vector<std::string> names;
     for (const auto& move : pImpl->moves)
     {
-        if (move != nullptr)
-        {
-            names.push_back(move ? move->GetMoveName() : "Empty");
-        }
+        names.push_back(move->GetMoveName());
     }
     return names;
 }
+
+
 
 void Pokemon::UseMove(const std::string& moveName, Pokemon& target)
 {
@@ -55,6 +54,26 @@ void Pokemon::UseMove(const std::string& moveName, Pokemon& target)
     }
 }
 
+void Pokemon::RemoveMoveName(std::string moveName)
+{
+    const auto it = std::remove_if(
+       pImpl->moves.begin(),
+       pImpl->moves.end(),
+       [&moveName](const std::unique_ptr<MoveBase>& move) {
+           return move->GetMoveName() == moveName;
+       }
+    );
+
+    if (it != pImpl->moves.end())
+    {
+        pImpl->moves.erase(it, pImpl->moves.end());
+        std::cout << "Move " << moveName << " removed successfully.\n";
+    }
+    else
+    {
+        std::cerr << "Move: " << moveName << " not found.\n";
+    }   
+}
 
 std::array<std::string, 4> Pokemon::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)
 // std::vector<std::string> PokemonName::CreateMoveList(const std::string& move1, const std::string& move2, const std::string& move3, const std::string& move4)

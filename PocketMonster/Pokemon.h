@@ -51,6 +51,7 @@ public:
 
     void LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist);
     std::vector<std::string> GetMoveNames() const;
+    void RemoveMoveName(std::string moveName);
     void UseMove(const std::string& moveName, Pokemon& target);
 
 protected:
