@@ -13,50 +13,65 @@
 #include "Move/Psychic.h"
 #include "Move/QuickAttack.h"
 #include "Move/Thunderbolt.h"
-#include "PocketMonster/Battle.h"
 #include "PocketMonster/Mewtwo.h"
 #include "PocketMonster/Pokemon.h"
 #include "PocketMonster/Rattata.h"
+#include "State/Battle.h"
 
 // std::vector<Pokemon> CreateLegendaryPokemonTeam();
 
 int main()
 {
-    std::unique_ptr<Pokemon> mewtwo = std::make_unique<Mewtwo>();
     std::vector<std::unique_ptr<MoveBase>> mewtwoMoves;
-    
     mewtwoMoves.push_back(std::make_unique<Thunderbolt>());
     mewtwoMoves.push_back(std::make_unique<IceBeam>());
     mewtwoMoves.push_back(std::make_unique<HyperBeam>());
     mewtwoMoves.push_back(std::make_unique<Psychic>());
+
+    const std::unique_ptr<Pokemon> mewtwo = std::make_unique<Mewtwo>();
     mewtwo->LearnMoves(std::move(mewtwoMoves));
     const auto moveNames = mewtwo->GetMoveNames();
 
 
-    std::unique_ptr<Pokemon> rattata = std::make_unique<Rattata>();
     std::vector<std::unique_ptr<MoveBase>> rattataMoves;
-
     rattataMoves.push_back(std::make_unique<QuickAttack>());
     rattataMoves.push_back(std::make_unique<DoubleTeam>());
     rattataMoves.push_back(std::make_unique<Endeavor>());
     rattataMoves.push_back(std::make_unique<Hyper_Fang>());
+
+    std::unique_ptr<Pokemon> rattata = std::make_unique<Rattata>();
     rattata->LearnMoves(std::move(rattataMoves));
+
+    std::cout << "Hello and welcome to Pokemon battle!\n";
+    std::cout << "This is a simple Pokemon battle simulation.\n";
+    std::cout << "You will play as Jimmy, the little boy from Route 1. Who anticipate to meet the Legendary Pokemon trainer\n";
+    std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has one of level 100\n";
+    std::cout << "As you can imagine those Pokemon are also legendary\n\n";
     
+    Battle battle(*rattata, *mewtwo);
+    battle.Start();
+
+
+
+
+
+
+
     
-    int choice = 1;
-    for (const auto& mewtwo_move : moveNames)
-    {
-        std::cout << choice++ << ". " << mewtwo_move << "\n";
-    }
-    while (!(std::cin >> choice) || choice < 1 || choice > 4)
-    {
-        choice--;
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Invalid input. Please enter 1-4: ";
-    }
-    
-    mewtwo->UseMove(moveNames[choice], *rattata);
+    // int choice = 1;
+    // for (const auto& mewtwo_move : moveNames)
+    // {
+    //     std::cout << choice++ << ". " << mewtwo_move << "\n";
+    // }
+    // while (!(std::cin >> choice) || choice < 1 || choice > 4)
+    // {
+    //     choice--;
+    //     std::cin.clear();
+    //     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    //     std::cout << "Invalid input. Please enter 1-4: ";
+    // }
+    //
+    // mewtwo->UseMove(moveNames[choice], *rattata);
 
     
     
@@ -69,11 +84,7 @@ int main()
     //     std::make_unique<Psychic>()
     // });
     
-    std::cout << "Hello and welcome to Pokemon battle!\n";
-    std::cout << "This is a simple Pokemon battle simulation.\n";
-    std::cout << "You will play as Jimmy, the little boy from Route 1. Who anticipate to meet the Legendary Pokemon trainer\n";
-    std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has one of level 100\n";
-    std::cout << "As you can imagine those Pokemon are also legendary\n\n";
+
     
     // std::vector<Pokemon> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
 

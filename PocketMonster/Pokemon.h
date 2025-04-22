@@ -5,8 +5,6 @@
 
 #include "../Structs/PokemonData.h"
 
-// class MoveBase;
-
 class MoveBase;
 
 class Pokemon
@@ -51,15 +49,16 @@ public:
 
     void LearnMoves(std::vector<std::unique_ptr<MoveBase>>&& movelist);
     std::vector<std::string> GetMoveNames() const;
-    void RemoveMoveName(std::string moveName);
+    void RemoveMoveName(std::string moveName) const;
     void UseMove(const std::string& moveName, Pokemon& target);
 
 protected:
-    PokemonMoveData moveData;
-    PokemonData data;
 
     bool priorityMove = false;
 private:
+    PokemonMoveData moveData;
+    PokemonData data;
+    
     struct Impl;
     std::unique_ptr<Impl> pImpl;
     

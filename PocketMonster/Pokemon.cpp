@@ -54,7 +54,7 @@ void Pokemon::UseMove(const std::string& moveName, Pokemon& target)
     }
 }
 
-void Pokemon::RemoveMoveName(std::string moveName)
+void Pokemon::RemoveMoveName(std::string moveName) const
 {
     const auto it = std::remove_if(
        pImpl->moves.begin(),
