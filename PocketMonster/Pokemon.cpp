@@ -52,7 +52,7 @@ void PokemonBase::EffectBeforeCombat(const std::string& moveName, PokemonBase& t
 
 void PokemonBase::MoveForCombat(const std::string& moveName, PokemonBase& target)
 {
-    std::cout << GetName() << " used " << moveName << " on " << target.GetName() << "\n\n";
+    std::cout << GetName() << " used " << moveName << " on " << target.GetName() << "\n";
 
     for (const auto& move : pImpl->moves)
     {
@@ -61,7 +61,7 @@ void PokemonBase::MoveForCombat(const std::string& moveName, PokemonBase& target
         
         move->CalculateDamage(this, &target);
         
-        std::cout << target.GetName() << " has " << target.GetHealth() << " health left.\n\n";
+        std::cout << target.GetName() << " has " << target.GetHealth() << " health remaining.\n\n";
         break;
     }
 }
@@ -102,7 +102,7 @@ int PokemonBase::TakeDamage(const int damage)
     data.health -= damage;
     if (data.health <= 0)
     {
-        if (this->GetHeldItem() == "FocusSash")
+        if (GetHeldItem() == "FocusSash")
         {
             data.health = 1;
             std::cout << data.name << " held a Focus Sash and survived with 1 HP!\n";
@@ -111,7 +111,6 @@ int PokemonBase::TakeDamage(const int damage)
         else
         {
             data.isAlive = false;
-            std::cout << data.name << " has fainted!\n";
         }
     }
     return data.health;

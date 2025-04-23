@@ -18,11 +18,12 @@ void PlayerTurnState::Execute(Battle& battle)
 
 void PlayerTurnState::Exit(Battle& battle)
 {
-    std::cout << battle.GetPlayer().GetName() << "'s turn ended.\n";
+    // std::cout << battle.GetPlayer().GetName() << "'s turn ended.\n";
 }
 
 void PlayerTurnState::HandleInput(Battle& battle, const int input)
 {
+    system("cls");
     auto& player = battle.GetPlayer();
     auto& opponent = battle.GetOpponent();
 
@@ -30,7 +31,6 @@ void PlayerTurnState::HandleInput(Battle& battle, const int input)
     const auto moveName = moveNames[input];
 
     player.SetRecordMove(moveName);
-    // player.UseMove(moveName, opponent);
 
     if (opponent.getIsAlive())
     {

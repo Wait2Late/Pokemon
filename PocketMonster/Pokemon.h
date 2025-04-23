@@ -56,16 +56,14 @@ public:
     std::string GetRecordedMove() const;
 
 protected:
-    bool priorityMove = false;
 private:
     PokemonMoveData moveData;
     PokemonData data;
+    
+    bool priorityMove = false;
     
     struct Impl;
     std::unique_ptr<Impl> pImpl;
 
     std::string unleashMove;
-    // std::vector<std::string> moveList;
-    // std::array<std::string, 4> moveList;
-
 };

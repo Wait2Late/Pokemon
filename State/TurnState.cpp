@@ -19,26 +19,26 @@ void TurnState::Enter(Battle& battle)
     opponent.EffectBeforeCombat(opponentMove, player);
 
     // Create a list of Pokémon and sort by priority and speed
-    std::vector<std::pair<PokemonBase*, std::string>> turnOrder =
+    std::vector<std::pair<std::reference_wrapper<PokemonBase>, std::string>> turnOrder =
     {
-        {&player, playerMove},
-        {&opponent, opponentMove}
+        {player, playerMove},
+        {opponent, opponentMove}
     };
 
     std::sort(turnOrder.begin(), turnOrder.end(), [](const auto& a, const auto& b)
     {
-        if (a.first->GetPriority() == b.first->GetPriority())
-            return a.first->GetSpeed() > b.first->GetSpeed();
-        if (a.first->GetPriority() != b.first->GetPriority())
-            return a.first->GetPriority() > b.first->GetPriority();
-        return a.first->GetSpeed() > b.first->GetSpeed();
+        if (a.first.get().GetPriority() == b.first.get().GetPriority())
+            return a.first.get().GetSpeed() > b.first.get().GetSpeed();
+        if (a.first.get().GetPriority() != b.first.get().GetPriority())
+            return a.first.get().GetPriority() > b.first.get().GetPriority();
+        return a.first.get().GetSpeed() > b.first.get().GetSpeed();
     });
 
     for (auto& [pokemon, move] : turnOrder)
     {
-        auto& target = (pokemon == &player) ? opponent : player;
-        pokemon->MoveForCombat(move, target);
-    
+        auto& target = (&pokemon.get() == &player) ? opponent : player;
+        
+        pokemon.get().MoveForCombat(move, target);
         if (!target.getIsAlive())
         {
             battle.SetState(std::make_unique<BattleOverState>());
