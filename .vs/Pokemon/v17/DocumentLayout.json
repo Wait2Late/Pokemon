@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\w82l8\\Documents\\GitHub\\C\u002B\u002B\\Pokemon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{996C207E-ECCE-44A4-9474-C6766F2B7E91}|Pokemon.vcxproj|C:\\Users\\w82l8\\Documents\\GitHub\\C\u002B\u002B\\Pokemon\\Pokemon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{996C207E-ECCE-44A4-9474-C6766F2B7E91}|Pokemon.vcxproj|solutionrelative:Pokemon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\w82l8\\Documents\\GitHub\\C\u002B\u002B\\Pokemon\\Pokemon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Pokemon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,10 +24,8 @@
               "RelativeDocumentMoniker": "Pokemon.cpp",
               "ToolTip": "C:\\Users\\w82l8\\Documents\\GitHub\\C\u002B\u002B\\Pokemon\\Pokemon.cpp",
               "RelativeToolTip": "Pokemon.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-13T15:47:13.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T15:47:13.454Z"
             }
           ]
         }

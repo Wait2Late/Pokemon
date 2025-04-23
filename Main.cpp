@@ -29,9 +29,8 @@ int main()
 
     std::unique_ptr<PokemonBase> mewtwo = std::make_unique<Mewtwo>();
     mewtwo->LearnMoves(std::move(mewtwoMoves));
-    const auto moveNames = mewtwo->GetMoveNames();
 
-
+    
     std::vector<std::unique_ptr<MoveBase>> rattataMoves;
     rattataMoves.push_back(std::make_unique<QuickAttack>());
     rattataMoves.push_back(std::make_unique<DoubleTeam>());
@@ -40,6 +39,7 @@ int main()
 
     std::unique_ptr<PokemonBase> rattata = std::make_unique<Rattata>();
     rattata->LearnMoves(std::move(rattataMoves));
+    rattata->SetHeldItem("FocusSash");
 
     std::cout << "Hello and welcome to Pokemon battle!\n";
     std::cout << "This is a simple Pokemon battle simulation.\n";

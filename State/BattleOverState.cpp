@@ -15,7 +15,6 @@ void BattleOverState::Enter(Battle& battle)
         std::cout << "You lost the battle!\n";
         exit(0);
     }
-
     if(!opponent.getIsAlive())
     {
         std::cout << opponent.GetName() << " fainted!\n";

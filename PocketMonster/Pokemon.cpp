@@ -102,8 +102,17 @@ int PokemonBase::TakeDamage(const int damage)
     data.health -= damage;
     if (data.health <= 0)
     {
-        data.isAlive = false;
-        std::cout << data.name << " has fainted!\n";
+        if (this->GetHeldItem() == "FocusSash")
+        {
+            data.health = 1;
+            std::cout << data.name << " held a Focus Sash and survived with 1 HP!\n";
+            this->SetHeldItem("");
+        }
+        else
+        {
+            data.isAlive = false;
+            std::cout << data.name << " has fainted!\n";
+        }
     }
     return data.health;
 }

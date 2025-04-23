@@ -8,4 +8,6 @@ public:
     void Execute(Battle& battle) override;
     void Exit(Battle& battle) override;
     void HandleInput(Battle& battle, int input) override;
+
+private:
 };
