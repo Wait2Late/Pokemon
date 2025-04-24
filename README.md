@@ -1,6 +1,6 @@
 # Pokémon Battle Simulator
 
-A C++ battle system implementing the State Pattern to manage turn-based combat between Pokémon.
+A C++ battle system implementing the several Programming patterns, while delivering the true OOP.
 
 # 🎯 Overview 
 - State Pattern for turn management
