@@ -1,81 +1,98 @@
 // Pokemon.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <array>
+#include <algorithm>
 #include <iostream>
 
-#include "PocketMonster/Battle.h"
+#include "Move/DoubleTeam.h"
+#include "Move/Endeavor.h"
+#include "Move/Hyper Fang.h"
+#include "Move/HyperBeam.h"
+#include "Move/IceBeam.h"
+#include "Move/Psychic.h"
+#include "Move/QuickAttack.h"
+#include "Move/Thunderbolt.h"
+#include "PocketMonster/Mewtwo.h"
 #include "PocketMonster/Pokemon.h"
-
-std::vector<Pokemon> CreateLegendaryPokemonTeam();
+#include "PocketMonster/Rattata.h"
+#include "State/Battle.h"
+#include "State/BattleOverState.h"
+#include "State/PlayerTurnState.h"
 
 int main()
 {
+    std::vector<std::unique_ptr<MoveBase>> mewtwoMoves;
+    mewtwoMoves.push_back(std::make_unique<Thunderbolt>());
+    mewtwoMoves.push_back(std::make_unique<IceBeam>());
+    mewtwoMoves.push_back(std::make_unique<HyperBeam>());
+    mewtwoMoves.push_back(std::make_unique<Psychic>());
+
+    std::unique_ptr<PokemonBase> mewtwo = std::make_unique<Mewtwo>();
+    mewtwo->LearnMoves(std::move(mewtwoMoves));
+
+    
+    std::vector<std::unique_ptr<MoveBase>> rattataMoves;
+    rattataMoves.push_back(std::make_unique<QuickAttack>());
+    rattataMoves.push_back(std::make_unique<DoubleTeam>());
+    rattataMoves.push_back(std::make_unique<Endeavor>());
+    rattataMoves.push_back(std::make_unique<Hyper_Fang>());
+
+    std::unique_ptr<PokemonBase> rattata = std::make_unique<Rattata>();
+    rattata->LearnMoves(std::move(rattataMoves));
+    rattata->SetHeldItem("FocusSash");
+
     std::cout << "Hello and welcome to Pokemon battle!\n";
     std::cout << "This is a simple Pokemon battle simulation.\n";
     std::cout << "You will play as Jimmy, the little boy from Route 1. Who anticipate to meet the Legendary Pokemon trainer\n";
     std::cout << "Jimmy only has one Pokemon at level 1. While the Legendary Pokemon Trainer has one of level 100\n";
-    std::cout << "As you can imagine those Pokemon are also legendary\n\n";
-
-    std::vector<Pokemon> LegendaryPokemonTeam = CreateLegendaryPokemonTeam();
-
-    Pokemon Rattata("Rattata", 1, 10, 10, 10, 10, 10, 10);
-    Rattata.CreateMoveList("QuickAttack", "DoubleTeam", "Endeavor", "");
-    Rattata.SetHeldItem("FocusSash");
+    std::cout << "As you can imagine that Pokemon is also legendary\n\n";
     
-    int currentEnemyPokemon = 0;
-    Battle battle;
-    while (Rattata.getIsAlive())
+    Battle battle(std::move(rattata), std::move(mewtwo));
+    battle.Start();
+
+    // while (rattata->getIsAlive() && mewtwo->getIsAlive())
+    while (true)
     {
-        battle.StartMenu(LegendaryPokemonTeam, Rattata, currentEnemyPokemon);
-        currentEnemyPokemon++;
-        if (currentEnemyPokemon >= LegendaryPokemonTeam.size())
+        if (auto* state = battle.GetCurrentState())
         {
-            std::cout << "Congratulations and welcome to the hall of fame!\n";
-            std::cout << "You have defeated the Legendary Pokemon traner!\n";
-            break;
+            if (dynamic_cast<PlayerTurnState*>(state))
+            {
+                // battle.HandleInput(3);
+            }
+            
+            battle.Update();
+
+            // if (dynamic_cast<BattleOverState*>(state))
+            // {
+            //     break;
+            // }
         }
     }
-    if (!Rattata.getIsAlive())
-    {
-        std::cout << "Your " << Rattata.GetName() << " has fainted!\n";
-        std::cout << "You have lost the battle!\n";
-    }
-
-    int num = 0;
-    std::cout << "Press any key to continue";
-    std::cin >> num;
-    
 }
 
 
-
-
-
-
-
-std::vector<Pokemon> CreateLegendaryPokemonTeam()
-{
-    Pokemon MewTwo("Mewtwo", 100, 416, 350, 306, 447, 306, 394);
-    MewTwo.CreateMoveList("Ice_Beam", "Aura_Spehere", "Psychic", "HyperBeam");
-        
-    // Pokemon Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
-    // Rayquaza.CreateMoveList("Ice_Beam", "Flamethrower", "Aura_Spehere", "Draco_meteor");
-    //     
-    // Pokemon Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
-    // Arceus.CreateMoveList("Judgment", "Surf", "Dragon_Claw", "Thunderbolt");
-    //     
-    // Pokemon Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
-    // Necrozma.CreateMoveList("Earthquake", "Psychic", "Light_That_Burns_The_Sky", "Fly");
-    //     
-    // Pokemon Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
-    // Kyurem.CreateMoveList("Ice_Beam", "Outrage", "Dragon_Claw", "HyperBeam");
-    //     
-    // Pokemon Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
-    // Lugia.CreateMoveList("Ice_Beam", "Surf", "Psychic", "HyperBeam");
-
-    return { MewTwo/*, Rayquaza, Arceus, Necrozma, Kyurem, Lugia */};
-}
+// std::vector<Pokemon> CreateLegendaryPokemonTeam()
+// {
+//     Pokemon MewTwo("Mewtwo", 100, 416, 350, 306, 447, 306, 394);
+//     MewTwo.CreateMoveList("Ice_Beam", "Aura_Spehere", "Psychic", "HyperBeam");
+//         
+//     // Pokemon Rayquaza("Rayquaza", 100, 414, 438, 306, 438, 306, 317);
+//     // Rayquaza.CreateMoveList("Ice_Beam", "Flamethrower", "Aura_Spehere", "Draco_meteor");
+//     //     
+//     // Pokemon Arceus("Arceus",100, 444, 372, 372, 372, 372, 372);
+//     // Arceus.CreateMoveList("Judgment", "Surf", "Dragon_Claw", "Thunderbolt");
+//     //     
+//     // Pokemon Necrozma("Necrozma", 100, 398, 476, 322, 476, 322, 392);
+//     // Necrozma.CreateMoveList("Earthquake", "Psychic", "Light_That_Burns_The_Sky", "Fly");
+//     //     
+//     // Pokemon Kyurem("Kyurem", 100, 454, 372, 306, 482, 328, 317);
+//     // Kyurem.CreateMoveList("Ice_Beam", "Outrage", "Dragon_Claw", "HyperBeam");
+//     //     
+//     // Pokemon Lugia("Lugia", 100, 416, 306, 394, 306, 447, 350);
+//     // Lugia.CreateMoveList("Ice_Beam", "Surf", "Psychic", "HyperBeam");
+//
+//     return { MewTwo/*, Rayquaza, Arceus, Necrozma, Kyurem, Lugia */};
+// }
 
 
 

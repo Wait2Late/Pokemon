@@ -15,8 +15,133 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Pokemon.cpp">
+    <ClCompile Include="Item\FocusSash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Item\ItemBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move\DoubleTeam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move\Endeavor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move\Hyper Fang.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move\HyperBeam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move\IceBeam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move\Move.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move\Psychic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move\QuickAttack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move\Thunderbolt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PocketMonster\Mewtwo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PocketMonster\Pokemon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PocketMonster\Rattata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Battle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\BattleOverState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\BattleState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\EnemyTurnState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\PlayerTurnState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\TurnState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Item\FocusSash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\ItemBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Move\DoubleTeam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Move\Endeavor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Move\Hyper Fang.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Move\HyperBeam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Move\IceBeam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Move\Move.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Move\Psychic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Move\QuickAttack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Move\Thunderbolt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PocketMonster\Mewtwo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PocketMonster\Pokemon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PocketMonster\Rattata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Battle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\BattleOverState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\BattleState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\EnemyTurnState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\PlayerTurnState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\TurnState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Structs\PokemonData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

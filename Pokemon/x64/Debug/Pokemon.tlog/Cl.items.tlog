@@ -1,3 +1,21 @@
-C:\Users\w82l8\Documents\GitHub\C++\Pokemon\PocketMonster\Battle.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Battle.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Item\FocusSash.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\FocusSash.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Item\ItemBase.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\ItemBase.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Move\DoubleTeam.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\DoubleTeam.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Move\Endeavor.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Endeavor.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Move\Hyper Fang.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Hyper Fang.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Move\HyperBeam.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\HyperBeam.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Move\IceBeam.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\IceBeam.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Move\Move.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Move.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Move\Psychic.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Psychic.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Move\QuickAttack.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\QuickAttack.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Move\Thunderbolt.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Thunderbolt.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\PocketMonster\Mewtwo.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Mewtwo.obj
 C:\Users\w82l8\Documents\GitHub\C++\Pokemon\PocketMonster\Pokemon.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Pokemon.obj
 C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Main.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Main.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\PocketMonster\Rattata.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Rattata.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\Battle.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\Battle.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\BattleOverState.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\BattleOverState.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\BattleState.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\BattleState.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\EnemyTurnState.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\EnemyTurnState.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\PlayerTurnState.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\PlayerTurnState.obj
+C:\Users\w82l8\Documents\GitHub\C++\Pokemon\State\TurnState.cpp;C:\Users\w82l8\Documents\GitHub\C++\Pokemon\Pokemon\x64\Debug\TurnState.obj

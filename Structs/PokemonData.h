@@ -22,6 +22,7 @@ struct PokemonData
 
 struct PokemonMoveData
 {
+    // std::vector<Move> moves;
     std::vector<std::string> movesList = {
     "QuickAttack",
     "DoubleTeam",
