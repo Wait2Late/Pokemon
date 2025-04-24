@@ -18,7 +18,6 @@ void TurnState::Enter(Battle& battle)
     player.EffectBeforeCombat(playerMove, opponent);
     opponent.EffectBeforeCombat(opponentMove, player);
 
-    // Create a list of Pokémon and sort by priority and speed
     std::vector<std::pair<std::reference_wrapper<PokemonBase>, std::string>> turnOrder =
     {
         {player, playerMove},
