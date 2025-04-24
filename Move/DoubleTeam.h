@@ -9,7 +9,7 @@ public:
 
     void ApplyEffect(PokemonBase* user, PokemonBase* target) override
     {
-        // user->SetHitAccuracy(user->GetHitAccuracy() + 100);
+        user->SetHitAccuracy(user->GetHitAccuracy() + 100);
     }
 
     int CalculateDamage(PokemonBase* user, PokemonBase* target) override
