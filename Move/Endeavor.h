@@ -23,8 +23,6 @@ public:
         }
         else
         {
-            std::cout << "Invalid use of Endeavor " << target->GetName()
-            << " has less health than " << user->GetName() << "\n";
             return target->TakeDamage(0);
         }
     }

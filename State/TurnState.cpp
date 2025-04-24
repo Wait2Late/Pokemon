@@ -54,7 +54,8 @@ void TurnState::Enter(Battle& battle)
     {
         battle.SetState(std::make_unique<BattleOverState>());
     }
-    
+
+    //Just showcasing my past implementation
     // if (opponent.GetSpeed() > player.GetSpeed())
     // {
     //     if (player.GetPriority())

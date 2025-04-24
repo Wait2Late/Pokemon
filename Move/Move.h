@@ -31,7 +31,7 @@ public:
         return name;
     }
     
-protected:
+private:
     std::string name;
     int power;
 };
