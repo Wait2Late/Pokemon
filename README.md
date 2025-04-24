@@ -57,7 +57,7 @@ stateDiagram-v2
     
     TurnState --> BattleOccurs
     BattleOccurs --> PlayerTurn : "Everyone survives"
-    BattleOccurs --> BattleIsOver
+    BattleOccurs --> BattleIsOver : "Someone fainted"
 ```
 
 
