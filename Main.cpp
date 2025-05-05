@@ -19,30 +19,8 @@
 #include "State/BattleOverState.h"
 #include "State/PlayerTurnState.h"
 
-void CreateRattata(std::unique_ptr<PokemonBase>& rattata)
-{
-    std::vector<std::unique_ptr<MoveBase>> rattataMoves;
-    rattataMoves.push_back(std::make_unique<QuickAttack>());
-    rattataMoves.push_back(std::make_unique<DoubleTeam>());
-    rattataMoves.push_back(std::make_unique<Endeavor>());
-    rattataMoves.push_back(std::make_unique<Hyper_Fang>());
-
-    rattata = std::make_unique<Rattata>();
-    rattata->LearnMoves(std::move(rattataMoves));
-    rattata->SetHeldItem("FocusSash");
-}
-
-void CreateMewtwo(std::unique_ptr<PokemonBase>& mewtwo)
-{
-    std::vector<std::unique_ptr<MoveBase>> mewtwoMoves;
-    mewtwoMoves.push_back(std::make_unique<Thunderbolt>());
-    mewtwoMoves.push_back(std::make_unique<IceBeam>());
-    mewtwoMoves.push_back(std::make_unique<HyperBeam>());
-    mewtwoMoves.push_back(std::make_unique<Psychic>());
-
-    mewtwo = std::make_unique<Mewtwo>();
-    mewtwo->LearnMoves(std::move(mewtwoMoves));
-}
+void CreateMewtwo(std::unique_ptr<PokemonBase>& mewtwo);
+void CreateRattata(std::unique_ptr<PokemonBase>& rattata);
 
 int main()
 {
@@ -82,6 +60,30 @@ int main()
     }
 }
 
+void CreateMewtwo(std::unique_ptr<PokemonBase>& mewtwo)
+{
+    std::vector<std::unique_ptr<MoveBase>> mewtwoMoves;
+    mewtwoMoves.push_back(std::make_unique<Thunderbolt>());
+    mewtwoMoves.push_back(std::make_unique<IceBeam>());
+    mewtwoMoves.push_back(std::make_unique<HyperBeam>());
+    mewtwoMoves.push_back(std::make_unique<Psychic>());
+
+    mewtwo = std::make_unique<Mewtwo>();
+    mewtwo->LearnMoves(std::move(mewtwoMoves));
+}
+
+void CreateRattata(std::unique_ptr<PokemonBase>& rattata)
+{
+    std::vector<std::unique_ptr<MoveBase>> rattataMoves;
+    rattataMoves.push_back(std::make_unique<QuickAttack>());
+    rattataMoves.push_back(std::make_unique<DoubleTeam>());
+    rattataMoves.push_back(std::make_unique<Endeavor>());
+    rattataMoves.push_back(std::make_unique<Hyper_Fang>());
+
+    rattata = std::make_unique<Rattata>();
+    rattata->LearnMoves(std::move(rattataMoves));
+    rattata->SetHeldItem("FocusSash");
+}
 
 // std::vector<Pokemon> CreateLegendaryPokemonTeam()
 // {
