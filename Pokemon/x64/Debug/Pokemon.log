@@ -1,2 +1,6 @@
-﻿  Pokemon.cpp
+﻿  Main.cpp
+  DoubleTeam.cpp
+  Endeavor.cpp
+  TurnState.cpp
+  Generating Code...
   Pokemon.vcxproj -> C:\Users\w82l8\Documents\GitHub\C++\Pokemon\x64\Debug\Pokemon.exe
