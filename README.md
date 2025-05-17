@@ -1,5 +1,9 @@
 # Pokémon Battle Simulator
 
+A quick and passionate project about a battle simulation against a legendary pokemon trainer.
+You play as Jimmy who has caugt a level 1 Rattata. Now face to face against the almighty legendary pokemon trainer.
+Can you make sure Jimmy wins?
+
 A C++ battle system implementing the several Programming patterns, while delivering the true OOP.
 
 # 🎯 Overview 
@@ -69,8 +73,3 @@ https://github.com/Wait2Late/Pokemon/blob/b247eb06fcedd255ec736f1f0e0e02545ea8f7
 https://github.com/Wait2Late/Pokemon/blob/b247eb06fcedd255ec736f1f0e0e02545ea8f7c8/Move/QuickAttack.h#L10-L18
 
 https://github.com/Wait2Late/Pokemon/blob/b247eb06fcedd255ec736f1f0e0e02545ea8f7c8/Move/Endeavor.h#L14-L27
-
-    
-A quick and passionate project about a battle simulation against a legendary pokemon trainer.
-You play as Jimmy who has caugt a level 1 Rattata. Now face to face against the almighty legendary pokemon trainer.
-Can you make sure Jimmy wins?
